@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Foarte important pentru telefoane -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Fabi Food & Coffee</title>
+
+    <!-- Fonturi -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+
+        /* =========================
+           SETĂRI GENERALE
+        ========================= */
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --roz: #e85d8f;
+            --roz-inchis: #c94474;
+            --roz-deschis: #fff0f5;
+            --roz-pal: #fff8fa;
+            --crem: #fffaf7;
+            --maro: #3a292d;
+            --gri: #786d70;
+            --alb: #ffffff;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "DM Sans", sans-serif;
+            background: var(--crem);
+            color: var(--maro);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            width: 100%;
+            display: block;
+        }
+
+
+        /* =========================
+           CONTAINER
+        ========================= */
+
+        .container {
+            width: 100%;
+            max-width: 600px;
+            margin: auto;
+            padding: 0 18px;
+        }
+
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            min-height: 100vh;
+            position: relative;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+
+            overflow: hidden;
+
+            background:
+                linear-gradient(
+                    to bottom,
+                    rgba(30, 15, 20, 0.05),
+                    rgba(30, 15, 20, 0.75)
+                ),
+                url("https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=1200&q=85")
+                center/cover;
+        }
+
+        .hero-content {
+            color: white;
+            padding: 30px 22px 45px;
+        }
+
+        .eticheta {
+            display: inline-block;
+            background: rgba(255,255,255,0.18);
+            border: 1px solid rgba(255,255,255,0.4);
+            backdrop-filter: blur(8px);
+
+            padding: 8px 14px;
+            border-radius: 50px;
+
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+
+            margin-bottom: 18px;
+        }
+
+        .logo {
+            font-family: "Playfair Display", serif;
+            font-size: 58px;
+            line-height: 0.95;
+            font-weight: 700;
+            letter-spacing: -2px;
+        }
+
+        .logo-sub {
+            font-size: 15px;
+            letter-spacing: 5px;
+            margin-top: 10px;
+            font-weight: 500;
+        }
+
+        .hero-text {
+            font-size: 16px;
+            line-height: 1.6;
+            margin-top: 22px;
+            max-width: 430px;
+            color: rgba(255,255,255,0.9);
+        }
+
+        .buton-hero {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            margin-top: 25px;
+
+            background: var(--roz);
+            color: white;
+
+            padding: 15px 25px;
+            border-radius: 50px;
+
+            font-size: 15px;
+            font-weight: 700;
+
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+
+            transition: 0.25s;
+        }
+
+        .buton-hero:hover {
+            transform: translateY(-2px);
+            background: var(--roz-inchis);
+        }
+
+
+        /* =========================
+           SECȚIUNE INTRO
+        ========================= */
+
+        .intro {
+            text-align: center;
+            padding: 60px 10px 35px;
+        }
+
+        .eticheta-roz {
+            color: var(--roz);
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .titlu {
+            font-family: "Playfair Display", serif;
+            font-size: 38px;
+            line-height: 1.1;
+            margin-top: 10px;
+        }
+
+        .descriere {
+            color: var(--gri);
+            line-height: 1.7;
+            font-size: 15px;
+            margin-top: 15px;
+        }
+
+
+        /* =========================
+           CATEGORII
+        ========================= */
+
+        .categorii {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-top: 25px;
+        }
+
+        .categorie {
+            background: white;
+            border-radius: 20px;
+            padding: 20px 15px;
+
+            text-align: center;
+
+            border: 1px solid #f4dfe6;
+
+            transition: 0.25s;
+        }
+
+        .categorie:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(200, 70, 110, 0.12);
+        }
+
+        .categorie-icon {
+            font-size: 30px;
+            margin-bottom: 8px;
+        }
+
+        .categorie-nume {
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        .categorie-sub {
+            color: var(--gri);
+            font-size: 12px;
+            margin-top: 4px;
+        }
+
+
+        /* =========================
+           PRODUSE RECOMANDATE
+        ========================= */
+
+        .sectiune {
+            padding: 35px 0;
+        }
+
+        .sectiune-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+            margin-bottom: 18px;
+        }
+
+        .sectiune-titlu {
+            font-family: "Playfair Display", serif;
+            font-size: 29px;
+        }
+
+        .sectiune-text {
+            color: var(--roz);
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .produse {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .produs {
+            background: white;
+            border-radius: 24px;
+            overflow: hidden;
+
+            box-shadow: 0 8px 30px rgba(50, 25, 30, 0.07);
+        }
+
+        .produs-imagine {
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .produs-info {
+            padding: 18px;
+        }
+
+        .produs-rand {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            gap: 10px;
+        }
+
+        .produs-nume {
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        .produs-pret {
+            color: var(--roz);
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        .produs-descriere {
+            color: var(--gri);
+            font-size: 13px;
+            line-height: 1.5;
+            margin-top: 7px;
+        }
+
+
+        /* =========================
+           BANNER
+        ========================= */
+
+        .banner {
+            margin: 25px 0;
+
+            border-radius: 28px;
+            padding: 30px 22px;
+
+            color: white;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(205, 50, 110, 0.95),
+                    rgba(238, 105, 150, 0.92)
+                );
+
+            position: relative;
+            overflow: hidden;
+        }
+
+        .banner::after {
+            content: "♡";
+
+            position: absolute;
+            right: -15px;
+            bottom: -35px;
+
+            font-family: "Playfair Display", serif;
+            font-size: 150px;
+
+            color: rgba(255,255,255,0.12);
+        }
+
+        .banner-mic {
+            font-size: 12px;
+            letter-spacing: 2px;
+            font-weight: 700;
+            text-transform: uppercase;
+            opacity: 0.85;
+        }
+
+        .banner h3 {
+            font-family: "Playfair Display", serif;
+            font-size: 30px;
+            line-height: 1.1;
+            margin-top: 8px;
+        }
+
+        .banner p {
+            font-size: 14px;
+            line-height: 1.6;
+            margin-top: 10px;
+            max-width: 380px;
+            opacity: 0.9;
+        }
+
+
+        /* =========================
+           DESPRE NOI
+        ========================= */
+
+        .despre {
+            background: var(--roz-pal);
+            border-radius: 28px;
+            padding: 30px 22px;
+            margin: 15px 0 35px;
+            text-align: center;
+        }
+
+        .despre h3 {
+            font-family: "Playfair Display", serif;
+            font-size: 28px;
+        }
+
+        .despre p {
+            color: var(--gri);
+            font-size: 14px;
+            line-height: 1.7;
+            margin-top: 12px;
+        }
+
+
+        /* =========================
+           CONTACT
+        ========================= */
+
+        .contact {
+            padding: 20px 0 45px;
+        }
+
+        .contact-card {
+            background: white;
+            border: 1px solid #f2dce4;
+            border-radius: 24px;
+            padding: 25px 20px;
+        }
+
+        .contact-title {
+            font-family: "Playfair Display", serif;
+            font-size: 27px;
+            margin-bottom: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 12px 0;
+            border-bottom: 1px solid #f3eaed;
+        }
+
+        .contact-item:last-child {
+            border-bottom: none;
+        }
+
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background: var(--roz-deschis);
+
+            font-size: 18px;
+        }
+
+        .contact-info strong {
+            display: block;
+            font-size: 14px;
+        }
+
+        .contact-info span {
+            display: block;
+            color: var(--gri);
+            font-size: 13px;
+            margin-top: 2px;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            text-align: center;
+            padding: 30px 20px 45px;
+
+            color: var(--gri);
+            font-size: 12px;
+        }
+
+        .footer-logo {
+            font-family: "Playfair Display", serif;
+            font-size: 25px;
+            color: var(--maro);
+            margin-bottom: 8px;
+        }
+
+        .demo {
+            display: inline-block;
+            margin-top: 15px;
+
+            padding: 6px 12px;
+            border-radius: 50px;
+
+            background: #f3e8ec;
+            color: #9b7e88;
+
+            font-size: 10px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+
+        /* =========================
+           ANIMAȚIE
+        ========================= */
+
+        .fade-in {
+            animation: aparitie 0.8s ease both;
+        }
+
+        @keyframes aparitie {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+
+        /* =========================
+           DESKTOP
+        ========================= */
+
+        @media (min-width: 700px) {
+
+            body {
+                background: #eee7e9;
+            }
+
+            .container {
+                background: var(--crem);
+                box-shadow: 0 0 50px rgba(0,0,0,0.08);
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+<div class="container">
+
+
+    <!-- =========================
+         HERO
+    ========================== -->
+
+    <section class="hero">
+
+        <div class="hero-content fade-in">
+
+            <div class="eticheta">
+                Bun venit
+            </div>
+
+            <h1 class="logo">
+                FABI
+            </h1>
+
+            <div class="logo-sub">
+                FOOD & COFFEE
+            </div>
+
+            <p class="hero-text">
+                Cafea bună, mâncare delicioasă
+                și momente frumoase.
+            </p>
+
+            <a href="#meniu" class="buton-hero">
+                Vezi meniul ↓
+            </a>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         INTRO
+    ========================== -->
+
+    <section class="intro" id="meniu">
+
+        <div class="eticheta-roz">
+            Fabi Food & Coffee
+        </div>
+
+        <h2 class="titlu">
+            Ce ai poftă azi?
+        </h2>
+
+        <p class="descriere">
+            Descoperă preparatele și băuturile
+            noastre, pregătite cu grijă.
+        </p>
+
+    </section>
+
+
+
+    <!-- =========================
+         CATEGORII
+    ========================== -->
+
+    <div class="categorii">
+
+        <a href="#cafea" class="categorie">
+            <div class="categorie-icon">☕</div>
+            <div class="categorie-nume">Cafea</div>
+            <div class="categorie-sub">Arome intense</div>
+        </a>
+
+
+        <a href="#mic-dejun" class="categorie">
+            <div class="categorie-icon">🥐</div>
+            <div class="categorie-nume">Mic dejun</div>
+            <div class="categorie-sub">Pentru începutul zilei</div>
+        </a>
+
+
+        <a href="#mancare" class="categorie">
+            <div class="categorie-icon">🍔</div>
+            <div class="categorie-nume">Mâncare</div>
+            <div class="categorie-sub">Proaspăt pregătită</div>
+        </a>
+
+
+        <a href="#desert" class="categorie">
+            <div class="categorie-icon">🍰</div>
+            <div class="categorie-nume">Desert</div>
+            <div class="categorie-sub">Ceva dulce</div>
+        </a>
+
+    </div>
+
+
+
+    <!-- =========================
+         RECOMANDĂRI
+    ========================== -->
+
+    <section class="sectiune">
+
+        <div class="sectiune-header">
+
+            <h2 class="sectiune-titlu">
+                Recomandările noastre
+            </h2>
+
+            <span class="sectiune-text">
+                DEMO
+            </span>
+
+        </div>
+
+
+        <div class="produse">
+
+
+            <!-- PRODUS 1 -->
+
+            <article class="produs">
+
+                <img
+                    class="produs-imagine"
+                    src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1000&q=85"
+                    alt="Cafea"
+                >
+
+                <div class="produs-info">
+
+                    <div class="produs-rand">
+
+                        <div class="produs-nume">
+                            Cappuccino
+                        </div>
+
+                        <div class="produs-pret">
+                            12 lei
+                        </div>
+
+                    </div>
+
+                    <p class="produs-descriere">
+                        Espresso intens, lapte catifelat
+                        și spumă fină.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- PRODUS 2 -->
+
+            <article class="produs">
+
+                <img
+                    class="produs-imagine"
+                    src="https://images.unsplash.com/photo-1482049016688-2d3e1b311543?auto=format&fit=crop&w=1000&q=85"
+                    alt="Mic dejun"
+                >
+
+                <div class="produs-info">
+
+                    <div class="produs-rand">
+
+                        <div class="produs-nume">
+                            Mic dejun Fabi
+                        </div>
+
+                        <div class="produs-pret">
+                            25 lei
+                        </div>
+
+                    </div>
+
+                    <p class="produs-descriere">
+                        Un exemplu de preparat pentru
+                        meniul nostru de dimineață.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- PRODUS 3 -->
+
+            <article class="produs">
+
+                <img
+                    class="produs-imagine"
+                    src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&fit=crop&w=1000&q=85"
+                    alt="Desert"
+                >
+
+                <div class="produs-info">
+
+                    <div class="produs-rand">
+
+                        <div class="produs-nume">
+                            Desertul zilei
+                        </div>
+
+                        <div class="produs-pret">
+                            16 lei
+                        </div>
+
+                    </div>
+
+                    <p class="produs-descriere">
+                        Ceva dulce pentru a încheia
+                        experiența Fabi.
+                    </p>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         BANNER
+    ========================== -->
+
+    <section class="banner">
+
+        <div class="banner-mic">
+            Fabi Food & Coffee
+        </div>
+
+        <h3>
+            Cafea bună.<br>
+            Stare bună.
+        </h3>
+
+        <p>
+            Locul unde vii pentru o cafea
+            și rămâi pentru atmosferă.
+        </p>
+
+    </section>
+
+
+
+    <!-- =========================
+         DESPRE NOI
+    ========================== -->
+
+    <section class="despre">
+
+        <h3>
+            Ne bucurăm că ești aici ♡
+        </h3>
+
+        <p>
+            Acesta este un exemplu de cum ar putea
+            arăta meniul digital Fabi Food & Coffee.
+            Preparatele, fotografiile și prețurile
+            vor fi adăugate în varianta finală.
+        </p>
+
+    </section>
+
+
+
+    <!-- =========================
+         CONTACT
+    ========================== -->
+
+    <section class="contact">
+
+        <div class="contact-card">
+
+            <h3 class="contact-title">
+                Ne găsești aici
+            </h3>
+
+
+            <div class="contact-item">
+
+                <div class="contact-icon">
+                    📍
+                </div>
+
+                <div class="contact-info">
+
+                    <strong>Locația noastră</strong>
+
+                    <span>
+                        Adresa restaurantului
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="contact-item">
+
+                <div class="contact-icon">
+                    🕐
+                </div>
+
+                <div class="contact-info">
+
+                    <strong>Program</strong>
+
+                    <span>
+                        Luni – Duminică · 08:00 – 22:00
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="contact-item">
+
+                <div class="contact-icon">
+                    📷
+                </div>
+
+                <div class="contact-info">
+
+                    <strong>Instagram</strong>
+
+                    <span>
+                        @fabifoodcoffee
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+
+        <div class="footer-logo">
+            Fabi Food & Coffee
+        </div>
+
+        <div>
+            Vă așteptăm cu drag ♡
+        </div>
+
+        <div class="demo">
+            Prototip · Meniu digital
+        </div>
+
+    </footer>
+
+
+</div>
+
+</body>
+</html>
