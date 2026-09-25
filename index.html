@@ -1,918 +1,896 @@
 <!DOCTYPE html>
 <html lang="ro">
 <head>
-    <meta charset="UTF-8">
-
-    <!-- Foarte important pentru telefoane -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Fabi Food & Coffee</title>
-
-    <!-- Fonturi -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
-
-    <style>
-
-        /* =========================
-           SETĂRI GENERALE
-        ========================= */
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        :root {
-            --roz: #e85d8f;
-            --roz-inchis: #c94474;
-            --roz-deschis: #fff0f5;
-            --roz-pal: #fff8fa;
-            --crem: #fffaf7;
-            --maro: #3a292d;
-            --gri: #786d70;
-            --alb: #ffffff;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: "DM Sans", sans-serif;
-            background: var(--crem);
-            color: var(--maro);
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        img {
-            width: 100%;
-            display: block;
-        }
-
-
-        /* =========================
-           CONTAINER
-        ========================= */
-
-        .container {
-            width: 100%;
-            max-width: 600px;
-            margin: auto;
-            padding: 0 18px;
-        }
-
-
-        /* =========================
-           HERO
-        ========================= */
-
-        .hero {
-            min-height: 100vh;
-            position: relative;
-
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-
-            overflow: hidden;
-
-            background:
-                linear-gradient(
-                    to bottom,
-                    rgba(30, 15, 20, 0.05),
-                    rgba(30, 15, 20, 0.75)
-                ),
-                url("https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=1200&q=85")
-                center/cover;
-        }
-
-        .hero-content {
-            color: white;
-            padding: 30px 22px 45px;
-        }
-
-        .eticheta {
-            display: inline-block;
-            background: rgba(255,255,255,0.18);
-            border: 1px solid rgba(255,255,255,0.4);
-            backdrop-filter: blur(8px);
-
-            padding: 8px 14px;
-            border-radius: 50px;
-
-            font-size: 12px;
-            font-weight: 600;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-
-            margin-bottom: 18px;
-        }
-
-        .logo {
-            font-family: "Playfair Display", serif;
-            font-size: 58px;
-            line-height: 0.95;
-            font-weight: 700;
-            letter-spacing: -2px;
-        }
-
-        .logo-sub {
-            font-size: 15px;
-            letter-spacing: 5px;
-            margin-top: 10px;
-            font-weight: 500;
-        }
-
-        .hero-text {
-            font-size: 16px;
-            line-height: 1.6;
-            margin-top: 22px;
-            max-width: 430px;
-            color: rgba(255,255,255,0.9);
-        }
-
-        .buton-hero {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-
-            margin-top: 25px;
-
-            background: var(--roz);
-            color: white;
-
-            padding: 15px 25px;
-            border-radius: 50px;
-
-            font-size: 15px;
-            font-weight: 700;
-
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-
-            transition: 0.25s;
-        }
-
-        .buton-hero:hover {
-            transform: translateY(-2px);
-            background: var(--roz-inchis);
-        }
-
-
-        /* =========================
-           SECȚIUNE INTRO
-        ========================= */
-
-        .intro {
-            text-align: center;
-            padding: 60px 10px 35px;
-        }
-
-        .eticheta-roz {
-            color: var(--roz);
-            font-size: 12px;
-            font-weight: 700;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-        }
-
-        .titlu {
-            font-family: "Playfair Display", serif;
-            font-size: 38px;
-            line-height: 1.1;
-            margin-top: 10px;
-        }
-
-        .descriere {
-            color: var(--gri);
-            line-height: 1.7;
-            font-size: 15px;
-            margin-top: 15px;
-        }
-
-
-        /* =========================
-           CATEGORII
-        ========================= */
-
-        .categorii {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-            margin-top: 25px;
-        }
-
-        .categorie {
-            background: white;
-            border-radius: 20px;
-            padding: 20px 15px;
-
-            text-align: center;
-
-            border: 1px solid #f4dfe6;
-
-            transition: 0.25s;
-        }
-
-        .categorie:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 30px rgba(200, 70, 110, 0.12);
-        }
-
-        .categorie-icon {
-            font-size: 30px;
-            margin-bottom: 8px;
-        }
-
-        .categorie-nume {
-            font-weight: 700;
-            font-size: 14px;
-        }
-
-        .categorie-sub {
-            color: var(--gri);
-            font-size: 12px;
-            margin-top: 4px;
-        }
-
-
-        /* =========================
-           PRODUSE RECOMANDATE
-        ========================= */
-
-        .sectiune {
-            padding: 35px 0;
-        }
-
-        .sectiune-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: end;
-            margin-bottom: 18px;
-        }
-
-        .sectiune-titlu {
-            font-family: "Playfair Display", serif;
-            font-size: 29px;
-        }
-
-        .sectiune-text {
-            color: var(--roz);
-            font-size: 13px;
-            font-weight: 700;
-        }
-
-        .produse {
-            display: flex;
-            flex-direction: column;
-            gap: 18px;
-        }
-
-        .produs {
-            background: white;
-            border-radius: 24px;
-            overflow: hidden;
-
-            box-shadow: 0 8px 30px rgba(50, 25, 30, 0.07);
-        }
-
-        .produs-imagine {
-            height: 220px;
-            object-fit: cover;
-        }
-
-        .produs-info {
-            padding: 18px;
-        }
-
-        .produs-rand {
-            display: flex;
-            justify-content: space-between;
-            align-items: start;
-            gap: 10px;
-        }
-
-        .produs-nume {
-            font-size: 18px;
-            font-weight: 700;
-        }
-
-        .produs-pret {
-            color: var(--roz);
-            font-weight: 700;
-            white-space: nowrap;
-        }
-
-        .produs-descriere {
-            color: var(--gri);
-            font-size: 13px;
-            line-height: 1.5;
-            margin-top: 7px;
-        }
-
-
-        /* =========================
-           BANNER
-        ========================= */
-
-        .banner {
-            margin: 25px 0;
-
-            border-radius: 28px;
-            padding: 30px 22px;
-
-            color: white;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    rgba(205, 50, 110, 0.95),
-                    rgba(238, 105, 150, 0.92)
-                );
-
-            position: relative;
-            overflow: hidden;
-        }
-
-        .banner::after {
-            content: "♡";
-
-            position: absolute;
-            right: -15px;
-            bottom: -35px;
-
-            font-family: "Playfair Display", serif;
-            font-size: 150px;
-
-            color: rgba(255,255,255,0.12);
-        }
-
-        .banner-mic {
-            font-size: 12px;
-            letter-spacing: 2px;
-            font-weight: 700;
-            text-transform: uppercase;
-            opacity: 0.85;
-        }
-
-        .banner h3 {
-            font-family: "Playfair Display", serif;
-            font-size: 30px;
-            line-height: 1.1;
-            margin-top: 8px;
-        }
-
-        .banner p {
-            font-size: 14px;
-            line-height: 1.6;
-            margin-top: 10px;
-            max-width: 380px;
-            opacity: 0.9;
-        }
-
-
-        /* =========================
-           DESPRE NOI
-        ========================= */
-
-        .despre {
-            background: var(--roz-pal);
-            border-radius: 28px;
-            padding: 30px 22px;
-            margin: 15px 0 35px;
-            text-align: center;
-        }
-
-        .despre h3 {
-            font-family: "Playfair Display", serif;
-            font-size: 28px;
-        }
-
-        .despre p {
-            color: var(--gri);
-            font-size: 14px;
-            line-height: 1.7;
-            margin-top: 12px;
-        }
-
-
-        /* =========================
-           CONTACT
-        ========================= */
-
-        .contact {
-            padding: 20px 0 45px;
-        }
-
-        .contact-card {
-            background: white;
-            border: 1px solid #f2dce4;
-            border-radius: 24px;
-            padding: 25px 20px;
-        }
-
-        .contact-title {
-            font-family: "Playfair Display", serif;
-            font-size: 27px;
-            margin-bottom: 20px;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            padding: 12px 0;
-            border-bottom: 1px solid #f3eaed;
-        }
-
-        .contact-item:last-child {
-            border-bottom: none;
-        }
-
-        .contact-icon {
-            width: 40px;
-            height: 40px;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            border-radius: 50%;
-
-            background: var(--roz-deschis);
-
-            font-size: 18px;
-        }
-
-        .contact-info strong {
-            display: block;
-            font-size: 14px;
-        }
-
-        .contact-info span {
-            display: block;
-            color: var(--gri);
-            font-size: 13px;
-            margin-top: 2px;
-        }
-
-
-        /* =========================
-           FOOTER
-        ========================= */
-
-        footer {
-            text-align: center;
-            padding: 30px 20px 45px;
-
-            color: var(--gri);
-            font-size: 12px;
-        }
-
-        .footer-logo {
-            font-family: "Playfair Display", serif;
-            font-size: 25px;
-            color: var(--maro);
-            margin-bottom: 8px;
-        }
-
-        .demo {
-            display: inline-block;
-            margin-top: 15px;
-
-            padding: 6px 12px;
-            border-radius: 50px;
-
-            background: #f3e8ec;
-            color: #9b7e88;
-
-            font-size: 10px;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-
-
-        /* =========================
-           ANIMAȚIE
-        ========================= */
-
-        .fade-in {
-            animation: aparitie 0.8s ease both;
-        }
-
-        @keyframes aparitie {
-            from {
-                opacity: 0;
-                transform: translateY(15px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-
-        /* =========================
-           DESKTOP
-        ========================= */
-
-        @media (min-width: 700px) {
-
-            body {
-                background: #eee7e9;
-            }
-
-            .container {
-                background: var(--crem);
-                box-shadow: 0 0 50px rgba(0,0,0,0.08);
-            }
-
-        }
-
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fabi Food & Coffee — Meniu</title>
+<meta name="description" content="Fabi Food & Coffee — Meniu Pizza. Ingrediente proaspete, gust desăvârșit!">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --pink: #e91e63;
+    --pink-dark: #b8174f;
+    --pink-light: #fff0f5;
+    --pink-soft: #ffe1ec;
+    --dark: #241b20;
+    --gray: #746b70;
+    --white: #ffffff;
+    --border: #f0dce3;
+    --shadow: 0 10px 30px rgba(70,20,40,.08);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "DM Sans", sans-serif;
+    background: #fffafb;
+    color: var(--dark);
+    line-height: 1.6;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+img {
+    width: 100%;
+    display: block;
+}
+
+.hero {
+    min-height: 650px;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
+    color: white;
+    background:
+        linear-gradient(to top, rgba(30,10,20,.9), rgba(30,10,20,.15)),
+        url("https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=1800&q=85")
+        center/cover;
+}
+
+.hero-content {
+    width: 100%;
+    max-width: 1100px;
+    margin: auto;
+    padding: 70px 22px 55px;
+}
+
+.eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 12px;
+    font-weight: 800;
+    margin-bottom: 12px;
+}
+
+.hero h1 {
+    font-family: "Playfair Display", serif;
+    font-size: clamp(55px, 13vw, 105px);
+    line-height: .9;
+}
+
+.hero h2 {
+    font-size: clamp(22px, 5vw, 38px);
+    letter-spacing: 3px;
+    margin: 10px 0 18px;
+}
+
+.hero p {
+    max-width: 560px;
+    font-size: 17px;
+    margin-bottom: 28px;
+}
+
+.buttons {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 14px 23px;
+    border-radius: 999px;
+    font-weight: 800;
+    display: inline-block;
+}
+
+.btn-primary {
+    background: var(--pink);
+    color: white;
+}
+
+.btn-light {
+    background: white;
+    color: var(--pink-dark);
+}
+
+.sticky-nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(255,255,255,.96);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+}
+
+.nav-inner {
+    max-width: 1100px;
+    margin: auto;
+    padding: 12px 18px;
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+}
+
+.nav-link {
+    white-space: nowrap;
+    padding: 9px 15px;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--gray);
+}
+
+.nav-link:hover {
+    background: var(--pink-soft);
+    color: var(--pink-dark);
+}
+
+.brand-banner {
+    background: linear-gradient(135deg,#e91e63,#c2185b);
+    color: white;
+    text-align: center;
+    padding: 34px 20px;
+}
+
+.brand-banner h2 {
+    font-family: "Playfair Display", serif;
+    font-size: 34px;
+}
+
+.brand-banner p {
+    margin-top: 5px;
+    letter-spacing: 1.5px;
+    font-size: 13px;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.section {
+    max-width: 1100px;
+    margin: auto;
+    padding: 65px 20px;
+}
+
+.section-heading {
+    margin-bottom: 30px;
+}
+
+.small-title {
+    color: var(--pink);
+    text-transform: uppercase;
+    font-weight: 800;
+    font-size: 12px;
+    letter-spacing: 2px;
+    margin-bottom: 7px;
+}
+
+.section-heading h2 {
+    font-family: "Playfair Display", serif;
+    font-size: clamp(36px,7vw,55px);
+    line-height: 1;
+}
+
+.section-heading p {
+    margin-top: 12px;
+    color: var(--gray);
+    max-width: 650px;
+}
+
+.pizza-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 18px;
+}
+
+.pizza-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 22px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+.pizza-image {
+    height: 215px;
+    background: var(--pink-soft);
+}
+
+.pizza-image img {
+    height: 100%;
+    object-fit: cover;
+}
+
+.pizza-info {
+    padding: 20px;
+}
+
+.pizza-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.pizza-name {
+    font-family: "Playfair Display", serif;
+    font-size: 23px;
+    line-height: 1.1;
+}
+
+.pizza-price {
+    color: var(--pink-dark);
+    font-size: 19px;
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+.pizza-description {
+    color: var(--gray);
+    margin-top: 9px;
+    font-size: 14px;
+}
+
+details {
+    margin-top: 15px;
+    border-top: 1px solid var(--border);
+    padding-top: 13px;
+}
+
+summary {
+    cursor: pointer;
+    color: var(--pink-dark);
+    font-weight: 800;
+    font-size: 14px;
+}
+
+.ingredients {
+    margin-top: 12px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 7px 15px;
+    font-size: 13px;
+    color: var(--gray);
+}
+
+.ingredient {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    border-bottom: 1px dashed #eadbe1;
+    padding-bottom: 4px;
+}
+
+.ingredient span:last-child {
+    font-weight: 800;
+    color: var(--dark);
+    white-space: nowrap;
+}
+
+.turtas,
+.sizes,
+.info-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 18px;
+}
+
+.turta-card,
+.size-card,
+.info-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 22px;
+    padding: 24px;
+    box-shadow: var(--shadow);
+}
+
+.turta-top {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.turta-card h3,
+.size-card h3,
+.info-card h3 {
+    font-family: "Playfair Display", serif;
+}
+
+.turta-card h3 {
+    font-size: 25px;
+}
+
+.turta-price {
+    color: var(--pink-dark);
+    font-weight: 800;
+    font-size: 19px;
+}
+
+.turta-card p,
+.info-card p {
+    color: var(--gray);
+    margin-top: 7px;
+}
+
+.size-card h3 {
+    color: var(--pink-dark);
+    font-size: 38px;
+}
+
+.price-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 11px 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.price-row strong {
+    font-size: 17px;
+}
+
+.price-row span {
+    color: var(--gray);
+}
+
+.size-ingredients {
+    margin-top: 18px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 7px 15px;
+    color: var(--gray);
+    font-size: 14px;
+}
+
+.note {
+    margin-top: 25px;
+    padding: 18px;
+    background: var(--pink-light);
+    border-radius: 15px;
+    color: var(--pink-dark);
+    font-weight: 700;
+}
+
+.info-card h3 {
+    font-size: 27px;
+    margin-bottom: 8px;
+}
+
+footer {
+    background: #241b20;
+    color: white;
+    text-align: center;
+    padding: 48px 20px;
+}
+
+footer h2 {
+    font-family: "Playfair Display", serif;
+    font-size: 34px;
+}
+
+footer p {
+    color: #d7cbd0;
+    margin-top: 7px;
+}
+
+.footer-small {
+    margin-top: 25px;
+    font-size: 12px;
+    color: #a99ba1;
+}
+
+@media (min-width: 650px) {
+    .pizza-grid {
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .turtas,
+    .sizes,
+    .info-grid {
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .hero {
+        min-height: 700px;
+    }
+}
+
+@media (min-width: 950px) {
+    .pizza-grid {
+        grid-template-columns: repeat(3,1fr);
+    }
+}
+
+@media (max-width: 450px) {
+    .ingredients,
+    .size-ingredients {
+        grid-template-columns: 1fr;
+    }
+
+    .pizza-top {
+        flex-direction: column;
+    }
+}
+</style>
 </head>
-
 
 <body>
 
-<div class="container">
+<header class="hero">
+    <div class="hero-content">
+        <div class="eyebrow">Fabi Food & Coffee</div>
+        <h1>Fabi</h1>
+        <h2>FOOD & COFFEE</h2>
+        <p>Ingrediente proaspete, gust desăvârșit și momente frumoase. Descoperă meniul nostru.</p>
+        <div class="buttons">
+            <a href="#pizza" class="btn btn-primary">Vezi meniul</a>
+            <a href="#contact" class="btn btn-light">Contact</a>
+        </div>
+    </div>
+</header>
 
+<nav class="sticky-nav">
+    <div class="nav-inner">
+        <a href="#pizza" class="nav-link">🍕 Pizza</a>
+        <a href="#turta" class="nav-link">🫓 Turtă</a>
+        <a href="#dimensiuni" class="nav-link">📏 Dimensiuni</a>
+        <a href="#contact" class="nav-link">📍 Contact</a>
+    </div>
+</nav>
 
-    <!-- =========================
-         HERO
-    ========================== -->
+<section class="brand-banner">
+    <h2>MENIU PIZZA</h2>
+    <p>INGREDIENTE PROASPETE, GUST DESĂVÂRȘIT!</p>
+</section>
 
-    <section class="hero">
+<section class="section" id="pizza">
 
-        <div class="hero-content fade-in">
+    <div class="section-heading">
+        <div class="small-title">Fabi Food & Coffee</div>
+        <h2>Pizza</h2>
+        <p>Pizza preparată cu ingrediente proaspete și multă pasiune.</p>
+    </div>
 
-            <div class="eticheta">
-                Bun venit
+    <div class="pizza-grid">
+
+        <article class="pizza-card">
+            <div class="pizza-image">
+                <img src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=900&q=85" alt="Pizza Margherita">
+            </div>
+            <div class="pizza-info">
+                <div class="pizza-top">
+                    <h3 class="pizza-name">1. Pizza Margherita</h3>
+                    <div class="pizza-price">28 lei</div>
+                </div>
+                <p class="pizza-description">Sos de roșii, mozzarella, busuioc</p>
+                <details>
+                    <summary>Ingrediente & gramaj</summary>
+                    <div class="ingredients">
+                        <div class="ingredient"><span>Mozzarella</span><span>150 g</span></div>
+                        <div class="ingredient"><span>Sos de roșii</span><span>100 g</span></div>
+                        <div class="ingredient"><span>Busuioc</span><span>100 g</span></div>
+                    </div>
+                </details>
+            </div>
+        </article>
+
+        <article class="pizza-card">
+            <div class="pizza-image">
+                <img src="https://images.unsplash.com/photo-1579751626657-72bc17010498?auto=format&fit=crop&w=900&q=85" alt="Pizza Capriciosa">
+            </div>
+            <div class="pizza-info">
+                <div class="pizza-top">
+                    <h3 class="pizza-name">2. Capriciosa</h3>
+                    <div class="pizza-price">33 lei</div>
+                </div>
+                <p class="pizza-description">Șuncă, mozzarella, anghinare, sos de roșii, măsline</p>
+                <details>
+                    <summary>Ingrediente & gramaj</summary>
+                    <div class="ingredients">
+                        <div class="ingredient"><span>Mozzarella</span><span>150 g</span></div>
+                        <div class="ingredient"><span>Șuncă</span><span>50 g</span></div>
+                        <div class="ingredient"><span>Anghinare</span><span>40 g</span></div>
+                        <div class="ingredient"><span>Sos de roșii</span><span>100 g</span></div>
+                        <div class="ingredient"><span>Măsline</span><span>30 g</span></div>
+                    </div>
+                </details>
+            </div>
+        </article>
+
+        <article class="pizza-card">
+            <div class="pizza-image">
+                <img src="https://images.unsplash.com/photo-1579751626657-72bc17010498?auto=format&fit=crop&w=900&q=85" alt="Pizza Quattro Formaggi">
+            </div>
+            <div class="pizza-info">
+                <div class="pizza-top">
+                    <h3 class="pizza-name">3. Quattro Formaggi</h3>
+                    <div class="pizza-price">33 lei</div>
+                </div>
+                <p class="pizza-description">Mozzarella, parmezan, gorgonzola, emmentaler</p>
+                <details>
+                    <summary>Ingrediente & gramaj</summary>
+                    <div class="ingredients">
+                        <div class="ingredient"><span>Mozzarella</span><span>150 g</span></div>
+                        <div class="ingredient"><span>Parmezan</span><span>40 g</span></div>
+                        <div class="ingredient"><span>Gorgonzola</span><span>40 g</span></div>
+                        <div class="ingredient"><span>Emmentaler</span><span>40 g</span></div>
+                    </div>
+                </details>
+            </div>
+        </article>
+
+        <article class="pizza-card">
+            <div class="pizza-image">
+                <img src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=900&q=85" alt="Pizza Quattro Stagioni">
+            </div>
+            <div class="pizza-info">
+                <div class="pizza-top">
+                    <h3 class="pizza-name">4. Quattro Stagioni</h3>
+                    <div class="pizza-price">33 lei</div>
+                </div>
+                <p class="pizza-description">Mozzarella, sos de roșii, salam, șuncă, ciuperci, măsline</p>
+                <details>
+                    <summary>Ingrediente & gramaj</summary>
+                    <div class="ingredients">
+                        <div class="ingredient"><span>Mozzarella</span><span>150 g</span></div>
+                        <div class="ingredient"><span>Sos de roșii</span><span>100 g</span></div>
+                        <div class="ingredient"><span>Salam</span><span>50 g</span></div>
+                        <div class="ingredient"><span>Șuncă</span><span>50 g</span></div>
+                        <div class="ingredient"><span>Ciuperci</span><span>40 g</span></div>
+                        <div class="ingredient"><span>Măsline</span><span>30 g</span></div>
+                    </div>
+                </details>
+            </div>
+        </article>
+
+        <article class="pizza-card">
+            <div class="pizza-image">
+                <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=900&q=85" alt="Pizza cu Ton">
+            </div>
+            <div class="pizza-info">
+                <div class="pizza-top">
+                    <h3 class="pizza-name">5. Pizza cu Ton</h3>
+                    <div class="pizza-price">33 lei</div>
+                </div>
+                <p class="pizza-description">Sos de roșii, ceapă, ton</p>
+                <details>
+                    <summary>Ingrediente & gramaj</summary>
+                    <div class="ingredients">
+                        <div class="ingredient"><span>Mozzarella</span><span>150 g</span></div>
+                        <div class="ingredient"><span>Sos de roșii</span><span>100 g</span></div>
+                        <div class="ingredient"><span>Ton</span><span>70 g</span></div>
+                        <div class="ingredient"><span>Ceapă</span><span>30 g</span></div>
+                    </div>
+                </details>
+            </div>
+        </article>
+
+        <article class="pizza-card">
+            <div class="pizza-image">
+                <img src="https://images.unsplash.com/photo-1593560708920-61dd98c46a4e?auto=format&fit=crop&w=900&q=85" alt="Pizza Diavola">
+            </div>
+            <div class="pizza-info">
+                <div class="pizza-top">
+                    <h3 class="pizza-name">6. Pizza Diavola</h3>
+                    <div class="pizza-price">33 lei</div>
+                </div>
+                <p class="pizza-description">Sos de roșii, salam picant, mozzarella</p>
+                <details>
+                    <summary>Ingrediente & gramaj</summary>
+                    <div class="ingredients">
+                        <div class="ingredient"><span>Mozzarella</span><span>150 g</span></div>
+                        <div class="ingredient"><span>Sos de roșii</span><span>100 g</span></div>
+                        <div class="ingredient"><span>Salam picant</span><span>70 g</span></div>
+                    </div>
+                </details>
+            </div>
+        </article>
+
+        <article class="pizza-card">
+            <div class="pizza-image">
+                <img src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=900&q=85" alt="Prosciutto Crudo">
+            </div>
+            <div class="pizza-info">
+                <div class="pizza-top">
+                    <h3 class="pizza-name">7. Prosciutto Crudo</h3>
+                    <div class="pizza-price">33 lei</div>
+                </div>
+                <p class="pizza-description">Șuncă, mozzarella, parmezan, rucola, sos de roșii</p>
+                <details>
+                    <summary>Ingrediente & gramaj</summary>
+                    <div class="ingredients">
+                        <div class="ingredient"><span>Mozzarella</span><span>150 g</span></div>
+                        <div class="ingredient"><span>Șuncă</span><span>70 g</span></div>
+                        <div class="ingredient"><span>Parmezan</span><span>30 g</span></div>
+                        <div class="ingredient"><span>Rucola</span><span>20 g</span></div>
+                        <div class="ingredient"><span>Sos de roșii</span><span>100 g</span></div>
+                    </div>
+                </details>
+            </div>
+        </article>
+
+        <article class="pizza-card">
+            <div class="pizza-image">
+                <img src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=900&q=85" alt="Pizza Hawai">
+            </div>
+            <div class="pizza-info">
+                <div class="pizza-top">
+                    <h3 class="pizza-name">8. Hawai</h3>
+                    <div class="pizza-price">33 lei</div>
+                </div>
+                <p class="pizza-description">Sos de roșii, mozzarella, ananas, șuncă</p>
+                <details>
+                    <summary>Ingrediente & gramaj</summary>
+                    <div class="ingredients">
+                        <div class="ingredient"><span>Mozzarella</span><span>150 g</span></div>
+                        <div class="ingredient"><span>Sos de roșii</span><span>100 g</span></div>
+                        <div class="ingredient"><span>Ananas</span><span>60 g</span></div>
+                        <div class="ingredient"><span>Șuncă</span><span>50 g</span></div>
+                    </div>
+                </details>
+            </div>
+        </article>
+
+        <article class="pizza-card">
+            <div class="pizza-image">
+                <img src="https://images.unsplash.com/photo-1566843972142-a7fcb70de55a?auto=format&fit=crop&w=900&q=85" alt="Fabi Deluxe">
+            </div>
+            <div class="pizza-info">
+                <div class="pizza-top">
+                    <h3 class="pizza-name">9. Fabi Deluxe</h3>
+                    <div class="pizza-price">35 lei</div>
+                </div>
+                <p class="pizza-description">Salam, mozzarella, șuncă, cârnățiori, bacon, ciuperci, măsline, porumb</p>
+                <details>
+                    <summary>Ingrediente & gramaj</summary>
+                    <div class="ingredients">
+                        <div class="ingredient"><span>Mozzarella</span><span>150 g</span></div>
+                        <div class="ingredient"><span>Sos de roșii</span><span>100 g</span></div>
+                        <div class="ingredient"><span>Salam</span><span>50 g</span></div>
+                        <div class="ingredient"><span>Șuncă</span><span>50 g</span></div>
+                        <div class="ingredient"><span>Cârnățiori</span><span>50 g</span></div>
+                        <div class="ingredient"><span>Bacon</span><span>40 g</span></div>
+                        <div class="ingredient"><span>Ciuperci</span><span>40 g</span></div>
+                        <div class="ingredient"><span>Măsline</span><span>30 g</span></div>
+                        <div class="ingredient"><span>Porumb</span><span>30 g</span></div>
+                    </div>
+                </details>
+            </div>
+        </article>
+
+        <article class="pizza-card">
+            <div class="pizza-image">
+                <img src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=900&q=85" alt="Pizza Vegetariana">
+            </div>
+            <div class="pizza-info">
+                <div class="pizza-top">
+                    <h3 class="pizza-name">10. Vegetariana</h3>
+                    <div class="pizza-price">33 lei</div>
+                </div>
+                <p class="pizza-description">Sos de roșii, mozzarella, ciuperci, ardei, măsline, porumb</p>
+                <details>
+                    <summary>Ingrediente & gramaj</summary>
+                    <div class="ingredients">
+                        <div class="ingredient"><span>Mozzarella</span><span>150 g</span></div>
+                        <div class="ingredient"><span>Sos de roșii</span><span>100 g</span></div>
+                        <div class="ingredient"><span>Ciuperci</span><span>50 g</span></div>
+                        <div class="ingredient"><span>Ardei</span><span>50 g</span></div>
+                        <div class="ingredient"><span>Măsline</span><span>30 g</span></div>
+                        <div class="ingredient"><span>Porumb</span><span>30 g</span></div>
+                    </div>
+                </details>
+            </div>
+        </article>
+
+        <article class="pizza-card">
+            <div class="pizza-image">
+                <img src="https://images.unsplash.com/photo-1593560708920-61dd98c46a4e?auto=format&fit=crop&w=900&q=85" alt="Pizza cu Piept de Pui">
+            </div>
+            <div class="pizza-info">
+                <div class="pizza-top">
+                    <h3 class="pizza-name">11. Pizza cu Piept de Pui</h3>
+                    <div class="pizza-price">33 lei</div>
+                </div>
+                <p class="pizza-description">Sos de roșii, mozzarella, piept de pui</p>
+                <details>
+                    <summary>Ingrediente & gramaj</summary>
+                    <div class="ingredients">
+                        <div class="ingredient"><span>Mozzarella</span><span>150 g</span></div>
+                        <div class="ingredient"><span>Sos de roșii</span><span>100 g</span></div>
+                        <div class="ingredient"><span>Piept de pui</span><span>80 g</span></div>
+                    </div>
+                </details>
+            </div>
+        </article>
+
+    </div>
+</section>
+
+<section class="section" id="turta">
+
+    <div class="section-heading">
+        <div class="small-title">Fabi Food & Coffee</div>
+        <h2>Turtă</h2>
+        <p>O variantă simplă și delicioasă pentru o gustare rapidă.</p>
+    </div>
+
+    <div class="turtas">
+
+        <article class="turta-card">
+            <div class="turta-top">
+                <h3>Turtă Șuncă</h3>
+                <div class="turta-price">15 lei</div>
+            </div>
+            <p>Mozzarella, șuncă</p>
+            <details>
+                <summary>Ingrediente & gramaj</summary>
+                <div class="ingredients">
+                    <div class="ingredient"><span>Mozzarella</span><span>120 g</span></div>
+                    <div class="ingredient"><span>Șuncă</span><span>60 g</span></div>
+                </div>
+            </details>
+        </article>
+
+        <article class="turta-card">
+            <div class="turta-top">
+                <h3>Turtă Pui</h3>
+                <div class="turta-price">15 lei</div>
+            </div>
+            <p>Mozzarella, piept de pui</p>
+            <details>
+                <summary>Ingrediente & gramaj</summary>
+                <div class="ingredients">
+                    <div class="ingredient"><span>Mozzarella</span><span>120 g</span></div>
+                    <div class="ingredient"><span>Piept de pui</span><span>80 g</span></div>
+                </div>
+            </details>
+        </article>
+
+    </div>
+</section>
+
+<section class="section" id="dimensiuni">
+
+    <div class="section-heading">
+        <div class="small-title">Alege dimensiunea</div>
+        <h2>Dimensiuni disponibile</h2>
+        <p>Prețurile diferă în funcție de dimensiune și modalitatea de servire.</p>
+    </div>
+
+    <div class="sizes">
+
+        <article class="size-card">
+
+            <h3>33 CM</h3>
+
+            <div class="price-row">
+                <strong>33 lei</strong>
+                <span>La locație</span>
             </div>
 
-            <h1 class="logo">
-                FABI
-            </h1>
-
-            <div class="logo-sub">
-                FOOD & COFFEE
+            <div class="price-row">
+                <strong>35 lei</strong>
+                <span>Cu livrare</span>
             </div>
 
-            <p class="hero-text">
-                Cafea bună, mâncare delicioasă
-                și momente frumoase.
-            </p>
+            <div class="size-ingredients">
+                <div class="ingredient"><span>Mozzarella</span><span>200 g</span></div>
+                <div class="ingredient"><span>Sos de roșii</span><span>130 g</span></div>
+                <div class="ingredient"><span>Șuncă</span><span>70 g</span></div>
+                <div class="ingredient"><span>Salam</span><span>70 g</span></div>
+                <div class="ingredient"><span>Ciuperci</span><span>50 g</span></div>
+                <div class="ingredient"><span>Ardei</span><span>50 g</span></div>
+                <div class="ingredient"><span>Măsline</span><span>40 g</span></div>
+                <div class="ingredient"><span>Porumb</span><span>40 g</span></div>
+            </div>
 
-            <a href="#meniu" class="buton-hero">
-                Vezi meniul ↓
-            </a>
+        </article>
 
-        </div>
+        <article class="size-card">
 
-    </section>
+            <h3>50 CM</h3>
 
+            <div class="price-row">
+                <strong>65 lei</strong>
+                <span>La locație</span>
+            </div>
 
+            <div class="price-row">
+                <strong>70 lei</strong>
+                <span>Cu livrare</span>
+            </div>
 
-    <!-- =========================
-         INTRO
-    ========================== -->
+            <div class="size-ingredients">
+                <div class="ingredient"><span>Mozzarella</span><span>200 g</span></div>
+                <div class="ingredient"><span>Sos de roșii</span><span>150 g</span></div>
+                <div class="ingredient"><span>Șuncă</span><span>90 g</span></div>
+                <div class="ingredient"><span>Salam</span><span>90 g</span></div>
+                <div class="ingredient"><span>Ciuperci</span><span>70 g</span></div>
+                <div class="ingredient"><span>Ardei</span><span>70 g</span></div>
+                <div class="ingredient"><span>Măsline</span><span>60 g</span></div>
+                <div class="ingredient"><span>Porumb</span><span>60 g</span></div>
+            </div>
 
-    <section class="intro" id="meniu">
-
-        <div class="eticheta-roz">
-            Fabi Food & Coffee
-        </div>
-
-        <h2 class="titlu">
-            Ce ai poftă azi?
-        </h2>
-
-        <p class="descriere">
-            Descoperă preparatele și băuturile
-            noastre, pregătite cu grijă.
-        </p>
-
-    </section>
-
-
-
-    <!-- =========================
-         CATEGORII
-    ========================== -->
-
-    <div class="categorii">
-
-        <a href="#cafea" class="categorie">
-            <div class="categorie-icon">☕</div>
-            <div class="categorie-nume">Cafea</div>
-            <div class="categorie-sub">Arome intense</div>
-        </a>
-
-
-        <a href="#mic-dejun" class="categorie">
-            <div class="categorie-icon">🥐</div>
-            <div class="categorie-nume">Mic dejun</div>
-            <div class="categorie-sub">Pentru începutul zilei</div>
-        </a>
-
-
-        <a href="#mancare" class="categorie">
-            <div class="categorie-icon">🍔</div>
-            <div class="categorie-nume">Mâncare</div>
-            <div class="categorie-sub">Proaspăt pregătită</div>
-        </a>
-
-
-        <a href="#desert" class="categorie">
-            <div class="categorie-icon">🍰</div>
-            <div class="categorie-nume">Desert</div>
-            <div class="categorie-sub">Ceva dulce</div>
-        </a>
+        </article>
 
     </div>
 
+    <div class="note">
+        Gramajele pot varia în funcție de sortimentul de pizza.
+    </div>
 
+</section>
 
-    <!-- =========================
-         RECOMANDĂRI
-    ========================== -->
+<section class="section" id="contact">
 
-    <section class="sectiune">
+    <div class="section-heading">
+        <div class="small-title">Fabi Food & Coffee</div>
+        <h2>Ne găsești aici</h2>
+    </div>
 
-        <div class="sectiune-header">
+    <div class="info-grid">
 
-            <h2 class="sectiune-titlu">
-                Recomandările noastre
-            </h2>
-
-            <span class="sectiune-text">
-                DEMO
-            </span>
-
+        <div class="info-card">
+            <h3>📍 Locația noastră</h3>
+            <p>Adresa restaurantului</p>
         </div>
 
-
-        <div class="produse">
-
-
-            <!-- PRODUS 1 -->
-
-            <article class="produs">
-
-                <img
-                    class="produs-imagine"
-                    src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1000&q=85"
-                    alt="Cafea"
-                >
-
-                <div class="produs-info">
-
-                    <div class="produs-rand">
-
-                        <div class="produs-nume">
-                            Cappuccino
-                        </div>
-
-                        <div class="produs-pret">
-                            12 lei
-                        </div>
-
-                    </div>
-
-                    <p class="produs-descriere">
-                        Espresso intens, lapte catifelat
-                        și spumă fină.
-                    </p>
-
-                </div>
-
-            </article>
-
-
-
-            <!-- PRODUS 2 -->
-
-            <article class="produs">
-
-                <img
-                    class="produs-imagine"
-                    src="https://images.unsplash.com/photo-1482049016688-2d3e1b311543?auto=format&fit=crop&w=1000&q=85"
-                    alt="Mic dejun"
-                >
-
-                <div class="produs-info">
-
-                    <div class="produs-rand">
-
-                        <div class="produs-nume">
-                            Mic dejun Fabi
-                        </div>
-
-                        <div class="produs-pret">
-                            25 lei
-                        </div>
-
-                    </div>
-
-                    <p class="produs-descriere">
-                        Un exemplu de preparat pentru
-                        meniul nostru de dimineață.
-                    </p>
-
-                </div>
-
-            </article>
-
-
-
-            <!-- PRODUS 3 -->
-
-            <article class="produs">
-
-                <img
-                    class="produs-imagine"
-                    src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&fit=crop&w=1000&q=85"
-                    alt="Desert"
-                >
-
-                <div class="produs-info">
-
-                    <div class="produs-rand">
-
-                        <div class="produs-nume">
-                            Desertul zilei
-                        </div>
-
-                        <div class="produs-pret">
-                            16 lei
-                        </div>
-
-                    </div>
-
-                    <p class="produs-descriere">
-                        Ceva dulce pentru a încheia
-                        experiența Fabi.
-                    </p>
-
-                </div>
-
-            </article>
-
+        <div class="info-card">
+            <h3>🕐 Program</h3>
+            <p>Programul restaurantului</p>
         </div>
 
-    </section>
-
-
-
-    <!-- =========================
-         BANNER
-    ========================== -->
-
-    <section class="banner">
-
-        <div class="banner-mic">
-            Fabi Food & Coffee
+        <div class="info-card">
+            <h3>📞 Contact</h3>
+            <p>Numărul de telefon va fi adăugat aici.</p>
         </div>
 
-        <h3>
-            Cafea bună.<br>
-            Stare bună.
-        </h3>
-
-        <p>
-            Locul unde vii pentru o cafea
-            și rămâi pentru atmosferă.
-        </p>
-
-    </section>
-
-
-
-    <!-- =========================
-         DESPRE NOI
-    ========================== -->
-
-    <section class="despre">
-
-        <h3>
-            Ne bucurăm că ești aici ♡
-        </h3>
-
-        <p>
-            Acesta este un exemplu de cum ar putea
-            arăta meniul digital Fabi Food & Coffee.
-            Preparatele, fotografiile și prețurile
-            vor fi adăugate în varianta finală.
-        </p>
-
-    </section>
-
-
-
-    <!-- =========================
-         CONTACT
-    ========================== -->
-
-    <section class="contact">
-
-        <div class="contact-card">
-
-            <h3 class="contact-title">
-                Ne găsești aici
-            </h3>
-
-
-            <div class="contact-item">
-
-                <div class="contact-icon">
-                    📍
-                </div>
-
-                <div class="contact-info">
-
-                    <strong>Locația noastră</strong>
-
-                    <span>
-                        Adresa restaurantului
-                    </span>
-
-                </div>
-
-            </div>
-
-
-            <div class="contact-item">
-
-                <div class="contact-icon">
-                    🕐
-                </div>
-
-                <div class="contact-info">
-
-                    <strong>Program</strong>
-
-                    <span>
-                        Luni – Duminică · 08:00 – 22:00
-                    </span>
-
-                </div>
-
-            </div>
-
-
-            <div class="contact-item">
-
-                <div class="contact-icon">
-                    📷
-                </div>
-
-                <div class="contact-info">
-
-                    <strong>Instagram</strong>
-
-                    <span>
-                        @fabifoodcoffee
-                    </span>
-
-                </div>
-
-            </div>
-
+        <div class="info-card">
+            <h3>📸 Instagram</h3>
+            <p>Instagram Fabi Food & Coffee</p>
         </div>
 
-    </section>
+    </div>
 
+</section>
 
+<footer>
 
-    <!-- =========================
-         FOOTER
-    ========================== -->
+    <h2>Fabi</h2>
 
-    <footer>
+    <p>FOOD & COFFEE</p>
 
-        <div class="footer-logo">
-            Fabi Food & Coffee
-        </div>
+    <div class="footer-small">
+        Meniu digital · Fabi Food & Coffee
+    </div>
 
-        <div>
-            Vă așteptăm cu drag ♡
-        </div>
-
-        <div class="demo">
-            Prototip · Meniu digital
-        </div>
-
-    </footer>
-
-
-</div>
+</footer>
 
 </body>
 </html>
