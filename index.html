@@ -1,29 +1,48 @@
 <!DOCTYPE html>
 <html lang="ro">
 <head>
+
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <meta name="theme-color" content="#e91e63">
+
+<meta
+name="description"
+content="Fabi FOOD & COFFEE - Pizza, burgeri, shaorma, crispy, cocktail-uri și multe altele."
+>
 
 <title>Fabi FOOD & COFFEE | Meniu</title>
 
-<meta name="description" content="Fabi FOOD & COFFEE - Pizza, burgeri, shaorma, crispy, cocktail-uri și multe altele.">
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<link
+rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin
+>
+
+<link
+href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap"
+rel="stylesheet"
+>
 
 <style>
+
+/* =====================================================
+   GENERAL
+===================================================== */
 
 :root {
     --pink: #e91e63;
     --pink-dark: #c2185b;
     --pink-light: #fff0f6;
-    --pink-soft: #ffe1ec;
+    --pink-soft: #ffe0eb;
     --dark: #171717;
     --gray: #666;
-    --white: #fff;
-    --border: #f1d6e1;
+    --white: #ffffff;
+    --border: #f0d4df;
     --shadow: 0 10px 30px rgba(0,0,0,.08);
 }
 
@@ -39,7 +58,7 @@ html {
 
 body {
     font-family: "Montserrat", sans-serif;
-    background: #fff;
+    background: #ffffff;
     color: var(--dark);
     line-height: 1.6;
 }
@@ -51,93 +70,292 @@ a {
 
 img {
     display: block;
-    width: 100%;
+    max-width: 100%;
 }
 
-/* HERO */
+
+/* =====================================================
+   HEADER / HERO
+===================================================== */
 
 .hero {
-    min-height: 520px;
     position: relative;
+    min-height: 620px;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     color: white;
+    overflow: hidden;
+    background: #111;
+}
+
+.hero-slideshow {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+}
+
+.hero-slide {
+    position: absolute;
+    inset: 0;
+
+    background-size: cover;
+    background-position: center;
+
+    opacity: 0;
+
+    transition:
+        opacity 1.2s ease-in-out;
+
+    transform: scale(1.03);
+}
+
+.hero-slide.active {
+    opacity: 1;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+
     background:
-        linear-gradient(rgba(0,0,0,.65), rgba(0,0,0,.65)),
-        linear-gradient(135deg, #e91e63, #8e1745);
+        linear-gradient(
+            rgba(0,0,0,.58),
+            rgba(0,0,0,.70)
+        );
+
+    z-index: 1;
 }
 
 .hero-content {
+    position: relative;
+    z-index: 2;
+
+    width: min(950px, 100%);
+
     padding: 40px 20px;
-    max-width: 900px;
 }
 
 .hero-logo {
-    font-size: clamp(55px,12vw,110px);
+    font-size: clamp(60px, 13vw, 120px);
+
     font-weight: 900;
+
     line-height: .9;
-    color: #fff;
-    letter-spacing: -4px;
-    text-shadow: 0 5px 20px rgba(0,0,0,.3);
+
+    color: #ffffff;
+
+    letter-spacing: -5px;
+
+    text-shadow:
+        0 5px 20px rgba(0,0,0,.35);
 }
 
 .hero-subtitle {
-    margin-top: 18px;
-    font-size: clamp(18px,3vw,30px);
+    margin-top: 20px;
+
+    font-size: clamp(17px, 3vw, 30px);
+
     font-weight: 800;
+
     letter-spacing: 5px;
 }
 
 .hero-line {
     width: 100px;
     height: 5px;
-    background: var(--pink);
+
     margin: 25px auto;
+
+    background: var(--pink);
+
     border-radius: 20px;
 }
 
 .hero-description {
-    font-size: clamp(14px,2vw,19px);
-    font-weight: 500;
+    font-size: clamp(14px, 2vw, 19px);
+
+    font-weight: 600;
+
+    margin-bottom: 25px;
 }
 
-/* NAV */
+.hero-info {
+    display: flex;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+
+    margin-top: 20px;
+}
+
+.hero-info-box {
+    background: rgba(255,255,255,.12);
+
+    border: 1px solid rgba(255,255,255,.28);
+
+    backdrop-filter: blur(8px);
+
+    border-radius: 50px;
+
+    padding: 11px 18px;
+
+    font-size: 13px;
+
+    font-weight: 700;
+}
+
+.hero-info-box a:hover {
+    color: #ffb5d0;
+}
+
+.hero-buttons {
+    margin-top: 28px;
+
+    display: flex;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+}
+
+.hero-button {
+    display: inline-block;
+
+    padding: 13px 23px;
+
+    border-radius: 40px;
+
+    font-size: 13px;
+
+    font-weight: 800;
+
+    transition: .25s;
+}
+
+.hero-button-primary {
+    background: var(--pink);
+
+    color: white;
+}
+
+.hero-button-primary:hover {
+    background: var(--pink-dark);
+
+    transform: translateY(-2px);
+}
+
+.hero-button-secondary {
+    background: white;
+
+    color: var(--pink);
+}
+
+.hero-button-secondary:hover {
+    background: var(--pink-light);
+
+    transform: translateY(-2px);
+}
+
+.hero-dots {
+    position: absolute;
+
+    z-index: 3;
+
+    bottom: 25px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    display: flex;
+
+    gap: 8px;
+}
+
+.hero-dot {
+    width: 9px;
+    height: 9px;
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,.5);
+
+    transition: .3s;
+}
+
+.hero-dot.active {
+    width: 28px;
+
+    border-radius: 20px;
+
+    background: white;
+}
+
+
+/* =====================================================
+   NAVIGATION
+===================================================== */
 
 .nav {
     position: sticky;
+
     top: 0;
+
     z-index: 1000;
+
     background: rgba(255,255,255,.97);
-    box-shadow: 0 3px 15px rgba(0,0,0,.08);
+
+    box-shadow:
+        0 3px 15px rgba(0,0,0,.08);
+
     overflow-x: auto;
 }
 
 .nav-container {
     max-width: 1200px;
+
     margin: auto;
+
     display: flex;
+
     justify-content: center;
+
     align-items: center;
+
     min-width: max-content;
 }
 
 .nav a {
-    padding: 16px 15px;
-    font-size: 13px;
+    padding: 16px 14px;
+
+    font-size: 12px;
+
     font-weight: 800;
+
     color: #333;
-    transition: .2s;
+
     white-space: nowrap;
+
+    transition: .2s;
 }
 
 .nav a:hover {
     color: var(--pink);
+
     background: var(--pink-light);
 }
 
-/* GENERAL */
+
+/* =====================================================
+   SECTIONS
+===================================================== */
 
 .section {
     padding: 75px 20px;
@@ -148,20 +366,23 @@ img {
 }
 
 .container {
-    width: min(1200px,100%);
+    width: min(1200px, 100%);
+
     margin: auto;
 }
 
 .section-header {
     text-align: center;
+
     margin-bottom: 45px;
 }
 
 .section-title {
-    font-size: clamp(30px,5vw,48px);
+    font-size: clamp(30px, 5vw, 48px);
+
     font-weight: 900;
+
     text-transform: uppercase;
-    color: var(--dark);
 }
 
 .section-title span {
@@ -170,51 +391,84 @@ img {
 
 .section-subtitle {
     margin-top: 8px;
+
     color: var(--gray);
+
     font-size: 14px;
+
     font-weight: 600;
 }
 
 .section-divider {
     width: 70px;
+
     height: 4px;
+
     background: var(--pink);
+
     margin: 18px auto 0;
+
     border-radius: 20px;
 }
 
-/* CARDS */
+
+/* =====================================================
+   PRODUCT GRID
+===================================================== */
 
 .grid,
 .food-grid,
 .cocktail-grid {
     display: grid;
-    grid-template-columns: repeat(3,1fr);
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
     gap: 25px;
 }
+
+
+/* =====================================================
+   PIZZA / TURTA CARDS
+===================================================== */
 
 .card,
 .food-card {
     background: white;
+
     border-radius: 20px;
+
     overflow: hidden;
+
     box-shadow: var(--shadow);
+
     border: 1px solid var(--border);
+
     transition: .25s;
 }
 
 .card:hover,
 .food-card:hover {
     transform: translateY(-6px);
-    box-shadow: 0 18px 40px rgba(0,0,0,.12);
+
+    box-shadow:
+        0 18px 40px rgba(0,0,0,.12);
 }
 
 .card-image,
 .food-image {
     width: 100%;
+
     height: 230px;
+
     object-fit: cover;
-    background: linear-gradient(135deg,#ffe1ec,#fff0f6);
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffe0eb,
+            #fff0f6
+        );
 }
 
 .card-content,
@@ -225,45 +479,62 @@ img {
 .card-top,
 .food-header {
     display: flex;
+
     justify-content: space-between;
+
     align-items: flex-start;
+
     gap: 15px;
 }
 
 .card-title,
 .food-name {
-    font-size: 20px;
+    font-size: 19px;
+
     font-weight: 900;
+
     line-height: 1.2;
 }
 
 .price,
 .food-price {
     color: var(--pink);
-    font-size: 19px;
+
+    font-size: 18px;
+
     font-weight: 900;
+
     white-space: nowrap;
 }
 
 .description,
 .food-description {
     margin-top: 12px;
+
     color: #555;
+
     font-size: 14px;
+
     font-weight: 500;
 }
 
 .ingredients {
     margin-top: 18px;
+
     border-top: 1px solid #eee;
+
     padding-top: 14px;
 }
 
 .ingredients summary {
     cursor: pointer;
+
     color: var(--pink);
+
     font-size: 13px;
+
     font-weight: 800;
+
     list-style: none;
 }
 
@@ -273,7 +544,9 @@ img {
 
 .ingredients summary::after {
     content: "+";
+
     float: right;
+
     font-size: 18px;
 }
 
@@ -283,8 +556,11 @@ img {
 
 .ingredients ul {
     margin-top: 12px;
+
     padding-left: 18px;
+
     color: #666;
+
     font-size: 13px;
 }
 
@@ -292,31 +568,57 @@ img {
     margin-bottom: 5px;
 }
 
+
+/* =====================================================
+   FOOD
+===================================================== */
+
 .food-extra {
     display: inline-block;
+
     margin-top: 18px;
+
     background: var(--pink-light);
+
     color: var(--pink-dark);
+
     border-radius: 30px;
+
     padding: 8px 13px;
+
     font-size: 11px;
+
     font-weight: 900;
+
     text-transform: uppercase;
 }
 
-/* COCKTAILS */
+
+/* =====================================================
+   COCKTAILS
+===================================================== */
 
 .cocktail-card {
     position: relative;
-    min-height: 300px;
+
+    min-height: 320px;
+
     border-radius: 22px;
+
     overflow: hidden;
+
     display: flex;
+
     align-items: flex-end;
+
     box-shadow: var(--shadow);
+
     background-size: cover;
+
     background-position: center;
+
     background-color: #e91e63;
+
     transition: .25s ease;
 }
 
@@ -326,74 +628,106 @@ img {
 
 .cocktail-card::before {
     content: "";
+
     position: absolute;
+
     inset: 0;
-    background: linear-gradient(
-        to top,
-        rgba(0,0,0,.82),
-        rgba(0,0,0,.08)
-    );
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(0,0,0,.85),
+            rgba(0,0,0,.05)
+        );
 }
 
 .cocktail-content {
     position: relative;
+
     z-index: 1;
+
     color: white;
+
     padding: 25px;
+
     width: 100%;
 }
 
 .cocktail-name {
     font-size: 25px;
+
     font-weight: 900;
 }
 
 .cocktail-price {
     margin-top: 5px;
+
     font-size: 20px;
+
     color: #ffb2cf;
+
     font-weight: 900;
 }
 
-/* DIMENSIONS */
+
+/* =====================================================
+   DIMENSIONS
+===================================================== */
 
 .dimensions {
     display: grid;
-    grid-template-columns: repeat(2,1fr);
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
     gap: 30px;
+
     max-width: 900px;
+
     margin: auto;
 }
 
 .dimension-card {
     background: white;
+
     border: 2px solid var(--pink-soft);
+
     border-radius: 22px;
+
     padding: 30px;
+
     box-shadow: var(--shadow);
 }
 
 .dimension-title {
     font-size: 28px;
+
     font-weight: 900;
+
     color: var(--pink);
 }
 
 .dimension-price {
     margin-top: 8px;
+
     font-size: 18px;
+
     font-weight: 800;
 }
 
 .dimension-price span {
     color: #777;
+
     font-weight: 500;
 }
 
 .dimension-list {
     margin-top: 20px;
+
     padding-left: 20px;
+
     color: #555;
+
     font-size: 14px;
 }
 
@@ -403,47 +737,77 @@ img {
 
 .note {
     text-align: center;
+
     margin-top: 30px;
+
     color: #777;
+
     font-size: 13px;
+
     font-style: italic;
 }
 
-/* GOOD FOOD */
+
+/* =====================================================
+   POFTA BUNA
+===================================================== */
 
 .good-food {
     padding: 75px 20px;
-    background: linear-gradient(135deg,#e91e63,#c2185b);
+
+    background:
+        linear-gradient(
+            135deg,
+            #e91e63,
+            #c2185b
+        );
+
     color: white;
+
     text-align: center;
 }
 
 .good-food h2 {
-    font-size: clamp(40px,8vw,75px);
+    font-size: clamp(40px, 8vw, 75px);
+
     font-weight: 900;
+
     line-height: 1;
 }
 
 .good-food p {
     margin-top: 15px;
+
     font-size: 18px;
+
     font-weight: 600;
 }
 
-/* CONTACT */
+
+/* =====================================================
+   CONTACT
+===================================================== */
 
 .contact {
     background: #171717;
+
     color: white;
+
     padding: 65px 20px;
 }
 
 .contact-container {
-    width: min(1100px,100%);
+    width: min(1100px, 100%);
+
     margin: auto;
+
     display: grid;
-    grid-template-columns: repeat(3,1fr);
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
     gap: 30px;
+
     text-align: center;
 }
 
@@ -457,15 +821,21 @@ img {
 
 .contact-title {
     margin-top: 10px;
+
     color: var(--pink);
+
     font-size: 16px;
+
     font-weight: 900;
+
     text-transform: uppercase;
 }
 
 .contact-text {
     margin-top: 7px;
+
     color: #ddd;
+
     font-size: 14px;
 }
 
@@ -473,13 +843,20 @@ img {
     color: var(--pink);
 }
 
-/* FOOTER */
+
+/* =====================================================
+   FOOTER
+===================================================== */
 
 footer {
     background: #0e0e0e;
+
     color: #888;
+
     text-align: center;
+
     padding: 25px 20px;
+
     font-size: 12px;
 }
 
@@ -487,25 +864,51 @@ footer strong {
     color: var(--pink);
 }
 
-/* RESPONSIVE */
 
-@media (max-width:950px) {
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 950px) {
 
     .grid,
     .food-grid,
     .cocktail-grid {
-        grid-template-columns: repeat(2,1fr);
+        grid-template-columns:
+            repeat(2, 1fr);
     }
 
     .contact-container {
         grid-template-columns: 1fr;
     }
+
 }
 
-@media (max-width:650px) {
+
+@media (max-width: 650px) {
 
     .hero {
-        min-height: 440px;
+        min-height: 600px;
+    }
+
+    .hero-logo {
+        letter-spacing: -3px;
+    }
+
+    .hero-subtitle {
+        letter-spacing: 3px;
+    }
+
+    .hero-info {
+        flex-direction: column;
+
+        align-items: center;
+    }
+
+    .hero-info-box {
+        width: fit-content;
+
+        max-width: 100%;
     }
 
     .nav-container {
@@ -514,6 +917,7 @@ footer strong {
 
     .nav a {
         padding: 14px 11px;
+
         font-size: 11px;
     }
 
@@ -530,7 +934,7 @@ footer strong {
 
     .card-image,
     .food-image {
-        height: 230px;
+        height: 240px;
     }
 
     .cocktail-card {
@@ -546,1026 +950,1816 @@ footer strong {
         margin-bottom: 30px;
     }
 
-    .hero-logo {
-        letter-spacing: -2px;
+}
+
+
+/* =====================================================
+   REDUCED MOTION
+===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
     }
 
-    .hero-subtitle {
-        letter-spacing: 3px;
+    .hero-slide {
+        transition: none;
     }
+
 }
 
 </style>
+
 </head>
+
 
 <body>
 
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
 <header class="hero">
 
+
+    <div class="hero-slideshow">
+
+
+        <div
+            class="hero-slide active"
+            style="
+            background-image:
+            url('fabi-food-and-coffee/images/poza-locatie-1.jpg');
+            "
+        ></div>
+
+
+        <div
+            class="hero-slide"
+            style="
+            background-image:
+            url('fabi-food-and-coffee/images/poza-locatie-2.jpg');
+            "
+        ></div>
+
+
+        <div
+            class="hero-slide"
+            style="
+            background-image:
+            url('fabi-food-and-coffee/images/poza-locatie-3.jpg');
+            "
+        ></div>
+
+
+        <div
+            class="hero-slide"
+            style="
+            background-image:
+            url('fabi-food-and-coffee/images/poza-locatie-4.jpg');
+            "
+        ></div>
+
+
+    </div>
+
+
+    <div class="hero-overlay"></div>
+
+
     <div class="hero-content">
+
 
         <div class="hero-logo">
             Fabi
         </div>
 
+
         <div class="hero-subtitle">
             FOOD & COFFEE
         </div>
 
+
         <div class="hero-line"></div>
+
 
         <div class="hero-description">
             INGREDIENTE PROASPETE, GUST DESĂVÂRȘIT!
         </div>
 
+
+        <div class="hero-info">
+
+
+            <div class="hero-info-box">
+                📍 Aleea Cristalului 11, Dorohoi
+            </div>
+
+
+            <div class="hero-info-box">
+                🕐 07:00 – 22:00
+            </div>
+
+
+            <div class="hero-info-box">
+
+                📞
+
+                <a href="tel:0773765797">
+                    0773 765 797
+                </a>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="hero-buttons">
+
+
+            <a
+                href="#pizza"
+                class="hero-button hero-button-primary"
+            >
+                🍕 VEZI MENIUL
+            </a>
+
+
+            <a
+                href="tel:0773765797"
+                class="hero-button hero-button-secondary"
+            >
+                📞 SUNĂ ACUM
+            </a>
+
+
+        </div>
+
+
     </div>
+
+
+    <div class="hero-dots">
+
+
+        <div class="hero-dot active"></div>
+
+        <div class="hero-dot"></div>
+
+        <div class="hero-dot"></div>
+
+        <div class="hero-dot"></div>
+
+
+    </div>
+
 
 </header>
 
 
+<!-- =====================================================
+     NAV
+===================================================== -->
+
 <nav class="nav">
+
 
     <div class="nav-container">
 
-        <a href="#pizza">🍕 PIZZA</a>
-        <a href="#turta">🌯 TURTĂ</a>
-        <a href="#food">🍔 FOOD</a>
-        <a href="#cocktails">🍹 COCKTAIL-URI</a>
-        <a href="#dimensiuni">📏 DIMENSIUNI</a>
-        <a href="#contact">📞 CONTACT</a>
+
+        <a href="#pizza">
+            🍕 PIZZA
+        </a>
+
+
+        <a href="#turta">
+            🌯 TURTĂ
+        </a>
+
+
+        <a href="#food">
+            🍔 FOOD
+        </a>
+
+
+        <a href="#cocktails">
+            🍹 COCKTAIL-URI
+        </a>
+
+
+        <a href="#dimensiuni">
+            📏 DIMENSIUNI
+        </a>
+
+
+        <a href="#contact">
+            📞 CONTACT
+        </a>
+
 
     </div>
+
 
 </nav>
 
 
-<!-- PIZZA -->
+<!-- =====================================================
+     PIZZA
+===================================================== -->
 
-<section class="section" id="pizza">
+<section
+    class="section"
+    id="pizza"
+>
 
-<div class="container">
 
-<div class="section-header">
+    <div class="container">
 
-<h2 class="section-title">
-MENIU <span>PIZZA</span>
-</h2>
 
-<p class="section-subtitle">
-Pizza pregătită cu ingrediente proaspete
-</p>
+        <div class="section-header">
 
-<div class="section-divider"></div>
 
-</div>
+            <h2 class="section-title">
+                MENIU <span>PIZZA</span>
+            </h2>
 
-<div class="grid" id="pizza-grid"></div>
 
-</div>
+            <p class="section-subtitle">
+                Pizza pregătită cu ingrediente proaspete
+            </p>
+
+
+            <div class="section-divider"></div>
+
+
+        </div>
+
+
+        <div
+            class="grid"
+            id="pizza-grid"
+        ></div>
+
+
+    </div>
+
 
 </section>
 
 
-<!-- TURTA -->
+<!-- =====================================================
+     TURTA
+===================================================== -->
 
-<section class="section" id="turta">
+<section
+    class="section"
+    id="turta"
+>
 
-<div class="container">
 
-<div class="section-header">
+    <div class="container">
 
-<h2 class="section-title">
-MENIU <span>TURTĂ</span>
-</h2>
 
-<p class="section-subtitle">
-Simplu, gustos și proaspăt
-</p>
+        <div class="section-header">
 
-<div class="section-divider"></div>
 
-</div>
+            <h2 class="section-title">
+                MENIU <span>TURTĂ</span>
+            </h2>
 
-<div class="grid" id="turta-grid"></div>
 
-</div>
+            <p class="section-subtitle">
+                Simplu, gustos și proaspăt
+            </p>
+
+
+            <div class="section-divider"></div>
+
+
+        </div>
+
+
+        <div
+            class="grid"
+            id="turta-grid"
+        ></div>
+
+
+    </div>
+
 
 </section>
 
 
-<!-- FOOD -->
+<!-- =====================================================
+     FOOD
+===================================================== -->
 
-<section class="section" id="food">
+<section
+    class="section"
+    id="food"
+>
 
-<div class="container">
 
-<div class="section-header">
+    <div class="container">
 
-<h2 class="section-title">
-MENIU <span>FOOD</span>
-</h2>
 
-<p class="section-subtitle">
-Burgeri, shaorma, crispy și preparate delicioase
-</p>
+        <div class="section-header">
 
-<div class="section-divider"></div>
 
-</div>
+            <h2 class="section-title">
+                MENIU <span>FOOD</span>
+            </h2>
 
-<div class="food-grid" id="food-grid"></div>
 
-</div>
+            <p class="section-subtitle">
+                Burgeri, shaorma, crispy și preparate delicioase
+            </p>
+
+
+            <div class="section-divider"></div>
+
+
+        </div>
+
+
+        <div
+            class="food-grid"
+            id="food-grid"
+        ></div>
+
+
+    </div>
+
 
 </section>
 
 
-<!-- COCKTAILS -->
+<!-- =====================================================
+     COCKTAILS
+===================================================== -->
 
-<section class="section" id="cocktails">
+<section
+    class="section"
+    id="cocktails"
+>
 
-<div class="container">
 
-<div class="section-header">
+    <div class="container">
 
-<h2 class="section-title">
-🍹 <span>COCKTAIL-URI</span>
-</h2>
 
-<p class="section-subtitle">
-Cocktail-uri fresh pentru o experiență și mai plăcută
-</p>
+        <div class="section-header">
 
-<div class="section-divider"></div>
 
-</div>
+            <h2 class="section-title">
+                🍹 <span>COCKTAIL-URI</span>
+            </h2>
 
-<div class="cocktail-grid" id="cocktail-grid"></div>
 
-</div>
+            <p class="section-subtitle">
+                Cocktail-uri fresh pentru o experiență și mai plăcută
+            </p>
+
+
+            <div class="section-divider"></div>
+
+
+        </div>
+
+
+        <div
+            class="cocktail-grid"
+            id="cocktail-grid"
+        ></div>
+
+
+    </div>
+
 
 </section>
 
 
-<!-- DIMENSIUNI -->
+<!-- =====================================================
+     DIMENSIUNI
+===================================================== -->
 
-<section class="section" id="dimensiuni">
-
-<div class="container">
-
-<div class="section-header">
-
-<h2 class="section-title">
-DIMENSIUNI <span>PIZZA</span>
-</h2>
-
-<p class="section-subtitle">
-Alege dimensiunea potrivită pentru tine
-</p>
-
-<div class="section-divider"></div>
-
-</div>
-
-<div class="dimensions">
-
-<article class="dimension-card">
-
-<h3 class="dimension-title">
-33 CM
-</h3>
-
-<p class="dimension-price">
-33 lei <span>la locație</span>
-</p>
-
-<p class="dimension-price">
-35 lei <span>cu livrare</span>
-</p>
-
-<ul class="dimension-list">
-
-<li>Mozzarella — 200 g</li>
-<li>Sos de roșii — 130 g</li>
-<li>Șuncă — 70 g</li>
-<li>Salam — 70 g</li>
-<li>Ciuperci — 50 g</li>
-<li>Ardei — 50 g</li>
-<li>Măsline — 40 g</li>
-<li>Porumb — 40 g</li>
-
-</ul>
-
-</article>
+<section
+    class="section"
+    id="dimensiuni"
+>
 
 
-<article class="dimension-card">
+    <div class="container">
 
-<h3 class="dimension-title">
-50 CM
-</h3>
 
-<p class="dimension-price">
-65 lei <span>la locație</span>
-</p>
+        <div class="section-header">
 
-<p class="dimension-price">
-70 lei <span>cu livrare</span>
-</p>
 
-<ul class="dimension-list">
+            <h2 class="section-title">
+                DIMENSIUNI <span>PIZZA</span>
+            </h2>
 
-<li>Mozzarella — 200 g</li>
-<li>Sos de roșii — 150 g</li>
-<li>Șuncă — 90 g</li>
-<li>Salam — 90 g</li>
-<li>Ciuperci — 70 g</li>
-<li>Ardei — 70 g</li>
-<li>Măsline — 60 g</li>
-<li>Porumb — 60 g</li>
 
-</ul>
+            <p class="section-subtitle">
+                Alege dimensiunea potrivită pentru tine
+            </p>
 
-</article>
 
-</div>
+            <div class="section-divider"></div>
 
-<p class="note">
-Gramajele pot varia în funcție de sortimentul de pizza.
-</p>
 
-</div>
+        </div>
+
+
+        <div class="dimensions">
+
+
+            <article class="dimension-card">
+
+
+                <h3 class="dimension-title">
+                    33 CM
+                </h3>
+
+
+                <p class="dimension-price">
+                    33 lei
+                    <span>la locație</span>
+                </p>
+
+
+                <p class="dimension-price">
+                    35 lei
+                    <span>cu livrare</span>
+                </p>
+
+
+                <ul class="dimension-list">
+
+
+                    <li>
+                        Mozzarella — 200 g
+                    </li>
+
+
+                    <li>
+                        Sos de roșii — 130 g
+                    </li>
+
+
+                    <li>
+                        Șuncă — 70 g
+                    </li>
+
+
+                    <li>
+                        Salam — 70 g
+                    </li>
+
+
+                    <li>
+                        Ciuperci — 50 g
+                    </li>
+
+
+                    <li>
+                        Ardei — 50 g
+                    </li>
+
+
+                    <li>
+                        Măsline — 40 g
+                    </li>
+
+
+                    <li>
+                        Porumb — 40 g
+                    </li>
+
+
+                </ul>
+
+
+            </article>
+
+
+            <article class="dimension-card">
+
+
+                <h3 class="dimension-title">
+                    50 CM
+                </h3>
+
+
+                <p class="dimension-price">
+                    65 lei
+                    <span>la locație</span>
+                </p>
+
+
+                <p class="dimension-price">
+                    70 lei
+                    <span>cu livrare</span>
+                </p>
+
+
+                <ul class="dimension-list">
+
+
+                    <li>
+                        Mozzarella — 200 g
+                    </li>
+
+
+                    <li>
+                        Sos de roșii — 150 g
+                    </li>
+
+
+                    <li>
+                        Șuncă — 90 g
+                    </li>
+
+
+                    <li>
+                        Salam — 90 g
+                    </li>
+
+
+                    <li>
+                        Ciuperci — 70 g
+                    </li>
+
+
+                    <li>
+                        Ardei — 70 g
+                    </li>
+
+
+                    <li>
+                        Măsline — 60 g
+                    </li>
+
+
+                    <li>
+                        Porumb — 60 g
+                    </li>
+
+
+                </ul>
+
+
+            </article>
+
+
+        </div>
+
+
+        <p class="note">
+            Gramajele pot varia în funcție de sortimentul de pizza.
+        </p>
+
+
+    </div>
+
 
 </section>
 
 
-<!-- POFTA BUNA -->
+<!-- =====================================================
+     POFTA BUNA
+===================================================== -->
 
 <section class="good-food">
 
-<h2>
-POFTĂ BUNĂ! 🍔
-</h2>
 
-<p>
-Fabi FOOD & COFFEE
-</p>
+    <h2>
+        POFTĂ BUNĂ! 🍔
+    </h2>
+
+
+    <p>
+        Fabi FOOD & COFFEE
+    </p>
+
 
 </section>
 
 
-<!-- CONTACT -->
+<!-- =====================================================
+     CONTACT
+===================================================== -->
 
-<section class="contact" id="contact">
-
-<div class="contact-container">
-
-<div class="contact-box">
-
-<div class="contact-icon">
-📍
-</div>
-
-<div class="contact-title">
-Locație
-</div>
-
-<div class="contact-text">
-
-Fabi FOOD & COFFEE
-<br>
-Aleea Cristalului 11, Dorohoi
-
-</div>
-
-</div>
+<section
+    class="contact"
+    id="contact"
+>
 
 
-<div class="contact-box">
-
-<div class="contact-icon">
-📞
-</div>
-
-<div class="contact-title">
-Telefon
-</div>
-
-<div class="contact-text">
-
-<a href="tel:0773765797">
-0773 765 797
-</a>
-
-</div>
-
-</div>
+    <div class="contact-container">
 
 
-<div class="contact-box">
+        <div class="contact-box">
 
-<div class="contact-icon">
-🕐
-</div>
 
-<div class="contact-title">
-Program
-</div>
+            <div class="contact-icon">
+                📍
+            </div>
 
-<div class="contact-text">
 
-Luni – Duminică
-<br>
-07:00 – 22:00
+            <div class="contact-title">
+                Locație
+            </div>
 
-</div>
 
-</div>
+            <div class="contact-text">
 
-</div>
+                Fabi FOOD & COFFEE
+
+                <br>
+
+                Aleea Cristalului 11, Dorohoi
+
+            </div>
+
+
+        </div>
+
+
+        <div class="contact-box">
+
+
+            <div class="contact-icon">
+                📞
+            </div>
+
+
+            <div class="contact-title">
+                Telefon
+            </div>
+
+
+            <div class="contact-text">
+
+
+                <a href="tel:0773765797">
+                    0773 765 797
+                </a>
+
+
+            </div>
+
+
+        </div>
+
+
+        <div class="contact-box">
+
+
+            <div class="contact-icon">
+                🕐
+            </div>
+
+
+            <div class="contact-title">
+                Program
+            </div>
+
+
+            <div class="contact-text">
+
+                Luni – Duminică
+
+                <br>
+
+                07:00 – 22:00
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
 
 </section>
 
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
 
 <footer>
 
-<p>
-© 2026
-<strong>Fabi FOOD & COFFEE</strong>
-— Toate drepturile rezervate.
-</p>
+
+    <p>
+
+        © 2026
+
+        <strong>
+            Fabi FOOD & COFFEE
+        </strong>
+
+        — Toate drepturile rezervate.
+
+    </p>
+
 
 </footer>
 
 
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
 <script>
 
-/*
-========================================================
-CONFIGURARE IMAGINI
-========================================================
 
-Imaginile sunt în:
+/* =====================================================
+   PATH IMAGINI
+===================================================== */
 
-fabi-food-and-coffee/images/
-
-Codul încearcă automat:
-.jpg
-.jpeg
-.png
-.webp
-.avif
-.JPEG
-.JPG
-.PNG
-.WEBP
-.AVIF
-
-Deci nu contează extensia imaginii.
-========================================================
-*/
-
-const IMAGE_ROOT = "fabi-food-and-coffee/images/";
-
-const EXTENSIONS = [
-    ".jpg",
-    ".jpeg",
-    ".png",
-    ".webp",
-    ".avif",
-    ".JPG",
-    ".JPEG",
-    ".PNG",
-    ".WEBP",
-    ".AVIF"
-];
+const IMAGE_ROOT =
+    "fabi-food-and-coffee/images/";
 
 
-/*
-========================================================
-SISTEM AUTOMAT PENTRU IMAGINI
-========================================================
-*/
-
-function findImage(element, names, index = 0, extensionIndex = 0) {
-
-    if (!Array.isArray(names)) {
-        names = [names];
-    }
-
-    if (index >= names.length) {
-        element.style.display = "none";
-        return;
-    }
-
-    if (extensionIndex >= EXTENSIONS.length) {
-        findImage(element, names, index + 1, 0);
-        return;
-    }
-
-    const file = IMAGE_ROOT + names[index] + EXTENSIONS[extensionIndex];
-
-    const test = new Image();
-
-    test.onload = function() {
-        element.src = file;
-    };
-
-    test.onerror = function() {
-        findImage(element, names, index, extensionIndex + 1);
-    };
-
-    test.src = file;
-}
-
-
-/*
-========================================================
-PIZZA
-========================================================
-*/
+/* =====================================================
+   PIZZA
+===================================================== */
 
 const pizza = [
 
-{
-    names: ["margherita"],
-    title: "PIZZA MARGHERITA",
-    price: "28 lei",
-    description: "Sos de roșii, mozzarella, busuioc",
-    ingredients: [
-        "Mozzarella — 150 g",
-        "Sos de roșii — 100 g",
-        "Busuioc — 100 g"
-    ]
-},
 
-{
-    names: ["capriciosa", "capricioasa"],
-    title: "CAPRICIOSA",
-    price: "33 lei",
-    description: "Șuncă, mozzarella, anghinare, sos de roșii, măsline",
-    ingredients: [
-        "Mozzarella — 150 g",
-        "Șuncă — 50 g",
-        "Anghinare — 40 g",
-        "Sos de roșii — 100 g",
-        "Măsline — 30 g"
-    ]
-},
+    {
+        image: "margherita.jpg",
 
-{
-    names: ["quattro-formaggi", "quattroformaggi"],
-    title: "QUATTRO FORMAGGI",
-    price: "33 lei",
-    description: "Mozzarella, parmezan, gorgonzola, emmentaler",
-    ingredients: [
-        "Mozzarella — 150 g",
-        "Parmezan — 40 g",
-        "Gorgonzola — 40 g",
-        "Emmentaler — 40 g"
-    ]
-},
+        title: "PIZZA MARGHERITA",
 
-{
-    names: ["quattro-stagioni", "quattrostagioni"],
-    title: "QUATTRO STAGIONI",
-    price: "33 lei",
-    description: "Mozzarella, sos de roșii, salam, șuncă, ciuperci, măsline",
-    ingredients: [
-        "Mozzarella — 150 g",
-        "Sos de roșii — 100 g",
-        "Salam — 50 g",
-        "Șuncă — 50 g",
-        "Ciuperci — 40 g",
-        "Măsline — 30 g"
-    ]
-},
+        price: "28 lei",
 
-{
-    names: ["pizza-ton", "ton"],
-    title: "PIZZA CU TON",
-    price: "33 lei",
-    description: "Sos de roșii, ceapă, ton",
-    ingredients: [
-        "Mozzarella — 150 g",
-        "Sos de roșii — 100 g",
-        "Ton — 70 g",
-        "Ceapă — 30 g"
-    ]
-},
+        description:
+            "Sos de roșii, mozzarella, busuioc",
 
-{
-    names: ["diavola"],
-    title: "PIZZA DIAVOLA",
-    price: "33 lei",
-    description: "Sos de roșii, salam picant, mozzarella",
-    ingredients: [
-        "Mozzarella — 150 g",
-        "Sos de roșii — 100 g",
-        "Salam picant — 70 g"
-    ]
-},
+        ingredients: [
 
-{
-    names: ["prosciutto-crudo", "prosciutto"],
-    title: "PROSCIUTTO CRUDO",
-    price: "33 lei",
-    description: "Șuncă, mozzarella, parmezan, rucola, sos de roșii",
-    ingredients: [
-        "Mozzarella — 150 g",
-        "Șuncă — 70 g",
-        "Parmezan — 30 g",
-        "Rucola — 20 g",
-        "Sos de roșii — 100 g"
-    ]
-},
+            "Mozzarella — 150 g",
 
-{
-    names: ["pizza-hawai", "hawai", "hawaii"],
-    title: "HAWAI",
-    price: "33 lei",
-    description: "Sos de roșii, mozzarella, ananas, șuncă",
-    ingredients: [
-        "Mozzarella — 150 g",
-        "Sos de roșii — 100 g",
-        "Ananas — 60 g",
-        "Șuncă — 50 g"
-    ]
-},
+            "Sos de roșii — 100 g",
 
-{
-    names: ["fabi-deluxe", "fabi-deluxe-pizza", "fabideluxe"],
-    title: "FABI DELUXE",
-    price: "35 lei",
-    description: "Salam, mozzarella, șuncă, cârnățiori, bacon, ciuperci, măsline, porumb",
-    ingredients: [
-        "Mozzarella — 150 g",
-        "Sos de roșii — 100 g",
-        "Salam — 50 g",
-        "Șuncă — 50 g",
-        "Cârnățiori — 50 g",
-        "Bacon — 40 g",
-        "Ciuperci — 40 g",
-        "Măsline — 30 g",
-        "Porumb — 30 g"
-    ]
-},
+            "Busuioc — 100 g"
 
-{
-    names: ["vegetariana", "vegetarian"],
-    title: "VEGETARIANA",
-    price: "33 lei",
-    description: "Sos de roșii, mozzarella, ciuperci, ardei, măsline, porumb",
-    ingredients: [
-        "Mozzarella — 150 g",
-        "Sos de roșii — 100 g",
-        "Ciuperci — 50 g",
-        "Ardei — 50 g",
-        "Măsline — 30 g",
-        "Porumb — 30 g"
-    ]
-},
+        ]
 
-{
-    names: ["pizza-pui", "pui", "pizza-cu-pui"],
-    title: "PIZZA CU PIEPT DE PUI",
-    price: "33 lei",
-    description: "Sos de roșii, mozzarella, piept de pui",
-    ingredients: [
-        "Mozzarella — 150 g",
-        "Sos de roșii — 100 g",
-        "Piept de pui — 80 g"
-    ]
-}
+    },
+
+
+    {
+        image: "capricioasa.avif",
+
+        title: "CAPRICIOSA",
+
+        price: "33 lei",
+
+        description:
+            "Șuncă, mozzarella, anghinare, sos de roșii, măsline",
+
+        ingredients: [
+
+            "Mozzarella — 150 g",
+
+            "Șuncă — 50 g",
+
+            "Anghinare — 40 g",
+
+            "Sos de roșii — 100 g",
+
+            "Măsline — 30 g"
+
+        ]
+
+    },
+
+
+    {
+        image: null,
+
+        title: "QUATTRO FORMAGGI",
+
+        price: "33 lei",
+
+        description:
+            "Mozzarella, parmezan, gorgonzola, emmentaler",
+
+        ingredients: [
+
+            "Mozzarella — 150 g",
+
+            "Parmezan — 40 g",
+
+            "Gorgonzola — 40 g",
+
+            "Emmentaler — 40 g"
+
+        ]
+
+    },
+
+
+    {
+        image: null,
+
+        title: "QUATTRO STAGIONI",
+
+        price: "33 lei",
+
+        description:
+            "Mozzarella, sos de roșii, salam, șuncă, ciuperci, măsline",
+
+        ingredients: [
+
+            "Mozzarella — 150 g",
+
+            "Sos de roșii — 100 g",
+
+            "Salam — 50 g",
+
+            "Șuncă — 50 g",
+
+            "Ciuperci — 40 g",
+
+            "Măsline — 30 g"
+
+        ]
+
+    },
+
+
+    {
+        image: "pizza-ton.jpg",
+
+        title: "PIZZA CU TON",
+
+        price: "33 lei",
+
+        description:
+            "Sos de roșii, ceapă, ton",
+
+        ingredients: [
+
+            "Mozzarella — 150 g",
+
+            "Sos de roșii — 100 g",
+
+            "Ton — 70 g",
+
+            "Ceapă — 30 g"
+
+        ]
+
+    },
+
+
+    {
+        image: "diavola.jpg",
+
+        title: "PIZZA DIAVOLA",
+
+        price: "33 lei",
+
+        description:
+            "Sos de roșii, salam picant, mozzarella",
+
+        ingredients: [
+
+            "Mozzarella — 150 g",
+
+            "Sos de roșii — 100 g",
+
+            "Salam picant — 70 g"
+
+        ]
+
+    },
+
+
+    {
+        image: "prosciutto-crudo.jpg",
+
+        title: "PROSCIUTTO CRUDO",
+
+        price: "33 lei",
+
+        description:
+            "Șuncă, mozzarella, parmezan, rucola, sos de roșii",
+
+        ingredients: [
+
+            "Mozzarella — 150 g",
+
+            "Șuncă — 70 g",
+
+            "Parmezan — 30 g",
+
+            "Rucola — 20 g",
+
+            "Sos de roșii — 100 g"
+
+        ]
+
+    },
+
+
+    {
+        image: "pizza-hawai.jpg",
+
+        title: "HAWAI",
+
+        price: "33 lei",
+
+        description:
+            "Sos de roșii, mozzarella, ananas, șuncă",
+
+        ingredients: [
+
+            "Mozzarella — 150 g",
+
+            "Sos de roșii — 100 g",
+
+            "Ananas — 60 g",
+
+            "Șuncă — 50 g"
+
+        ]
+
+    },
+
+
+    {
+        image: "fabi-deluxe.jpg",
+
+        title: "FABI DELUXE",
+
+        price: "35 lei",
+
+        description:
+            "Salam, mozzarella, șuncă, cârnățiori, bacon, ciuperci, măsline, porumb",
+
+        ingredients: [
+
+            "Mozzarella — 150 g",
+
+            "Sos de roșii — 100 g",
+
+            "Salam — 50 g",
+
+            "Șuncă — 50 g",
+
+            "Cârnățiori — 50 g",
+
+            "Bacon — 40 g",
+
+            "Ciuperci — 40 g",
+
+            "Măsline — 30 g",
+
+            "Porumb — 30 g"
+
+        ]
+
+    },
+
+
+    {
+        image: "vegetariana.jpg",
+
+        title: "VEGETARIANA",
+
+        price: "33 lei",
+
+        description:
+            "Sos de roșii, mozzarella, ciuperci, ardei, măsline, porumb",
+
+        ingredients: [
+
+            "Mozzarella — 150 g",
+
+            "Sos de roșii — 100 g",
+
+            "Ciuperci — 50 g",
+
+            "Ardei — 50 g",
+
+            "Măsline — 30 g",
+
+            "Porumb — 30 g"
+
+        ]
+
+    },
+
+
+    {
+        image: "pizza-pui.jpg",
+
+        title: "PIZZA CU PIEPT DE PUI",
+
+        price: "33 lei",
+
+        description:
+            "Sos de roșii, mozzarella, piept de pui",
+
+        ingredients: [
+
+            "Mozzarella — 150 g",
+
+            "Sos de roșii — 100 g",
+
+            "Piept de pui — 80 g"
+
+        ]
+
+    }
 
 ];
 
 
-/*
-========================================================
-TURTA
-========================================================
-*/
+/* =====================================================
+   TURTA
+===================================================== */
 
 const turta = [
 
-{
-    names: ["turta-sunca", "turta-sunca"],
-    title: "TURTĂ ȘUNCĂ",
-    price: "15 lei",
-    description: "Mozzarella, șuncă",
-    ingredients: [
-        "Mozzarella — 120 g",
-        "Șuncă — 60 g"
-    ]
-},
 
-{
-    names: ["turta-pui"],
-    title: "TURTĂ PUI",
-    price: "15 lei",
-    description: "Mozzarella, piept de pui",
-    ingredients: [
-        "Mozzarella — 120 g",
-        "Piept de pui — 80 g"
-    ]
-}
+    {
+        image: "turta-sunca.jpg",
+
+        title: "TURTĂ ȘUNCĂ",
+
+        price: "15 lei",
+
+        description:
+            "Mozzarella, șuncă",
+
+        ingredients: [
+
+            "Mozzarella — 120 g",
+
+            "Șuncă — 60 g"
+
+        ]
+
+    },
+
+
+    {
+        image: "turta-pui.jpg",
+
+        title: "TURTĂ PUI",
+
+        price: "15 lei",
+
+        description:
+            "Mozzarella, piept de pui",
+
+        ingredients: [
+
+            "Mozzarella — 120 g",
+
+            "Piept de pui — 80 g"
+
+        ]
+
+    }
 
 ];
 
 
-/*
-========================================================
-FOOD
-========================================================
-*/
+/* =====================================================
+   FOOD
+===================================================== */
 
 const food = [
 
-{
-    names: ["burger-royal", "royal-burger"],
-    title: "ROYAL BURGER",
-    price: "30 lei",
-    description: "Carne de vită, castraveți murați, sos, roșii, salată, cheddar, bacon",
-    extra: "+ CARTOFI + SOS"
-},
 
-{
-    names: ["burger-pui"],
-    title: "BURGER PUI",
-    price: "18 lei",
-    description: "Carne de pui, cheddar, sos, salată, roșii",
-    extra: "+ CARTOFI + SOS"
-},
+    {
+        image: "burger-royal.jpg",
 
-{
-    names: ["snitel-xxl", "snitel"],
-    title: "ȘNIȚEL XXL",
-    price: "30 lei",
-    description: "Șnițel de pui, salată de varză",
-    extra: "+ CARTOFI + SOS"
-},
+        title: "ROYAL BURGER",
 
-{
-    names: ["shaorma"],
-    title: "SHAORMA",
-    price: "30 lei",
-    description: "Sos, cartofi, salată, carne de pui, lipie proaspătă",
-    extra: ""
-},
+        price: "30 lei",
 
-{
-    names: ["shaorma-farfurie"],
-    title: "SHAORMA LA FARFURIE",
-    price: "35 lei",
-    description: "Carne de pui, sos, cartofi, salată, chiflă",
-    extra: ""
-},
+        description:
+            "Carne de vită, castraveți murați, sos, roșii, salată, cheddar, bacon",
 
-{
-    names: ["crispy-pui", "meniu-crispy", "crispy"],
-    title: "CRISPY DE PUI",
-    price: "29 lei",
-    description: "Crispy de pui, cartofi, sos",
-    extra: ""
-},
+        extra:
+            "+ CARTOFI + SOS"
 
-{
-    names: ["burger-cheddar"],
-    title: "BURGER ÎN CHEDDAR",
-    price: "40 lei",
-    description: "Carne de vită, cheddar, cartofi, sos",
-    extra: ""
-}
+    },
+
+
+    {
+        image: "burger-pui.jpg",
+
+        title: "BURGER PUI",
+
+        price: "18 lei",
+
+        description:
+            "Carne de pui, cheddar, sos, salată, roșii",
+
+        extra:
+            "+ CARTOFI + SOS"
+
+    },
+
+
+    {
+        image: "snitel-xxl.jpg",
+
+        title: "ȘNIȚEL XXL",
+
+        price: "30 lei",
+
+        description:
+            "Șnițel de pui, salată de varză",
+
+        extra:
+            "+ CARTOFI + SOS"
+
+    },
+
+
+    {
+        image: "shaorma.jpg",
+
+        title: "SHAORMA",
+
+        price: "30 lei",
+
+        description:
+            "Sos, cartofi, salată, carne de pui, lipie proaspătă",
+
+        extra: ""
+
+    },
+
+
+    {
+        image: "shaorma-farfurie.jpg",
+
+        title: "SHAORMA LA FARFURIE",
+
+        price: "35 lei",
+
+        description:
+            "Carne de pui, sos, cartofi, salată, chiflă",
+
+        extra: ""
+
+    },
+
+
+    {
+        image: "meniu-crispy.jpg",
+
+        title: "CRISPY DE PUI",
+
+        price: "29 lei",
+
+        description:
+            "Crispy de pui, cartofi, sos",
+
+        extra: ""
+
+    },
+
+
+    {
+        image: "burger-cheddar.jpg",
+
+        title: "BURGER ÎN CHEDDAR",
+
+        price: "40 lei",
+
+        description:
+            "Carne de vită, cheddar, cartofi, sos",
+
+        extra: ""
+
+    }
 
 ];
 
 
-/*
-========================================================
-COCKTAILURI
-========================================================
-*/
+/* =====================================================
+   COCKTAILURI
+===================================================== */
 
 const cocktails = [
 
-{
-    names: ["blue-lagoon", "bluelagoon"],
-    title: "Blue Lagoon",
-    price: "15 lei"
-},
 
-{
-    names: ["strawberry-crush", "strawberrycrush"],
-    title: "Strawberry Crush",
-    price: "15 lei"
-},
+    {
+        image: "blue-lagoon.jpg",
 
-{
-    names: ["electric-lemonade", "electriclemonade"],
-    title: "Electric Lemonade",
-    price: "15 lei"
-}
+        title: "Blue Lagoon",
+
+        price: "15 lei"
+
+    },
+
+
+    {
+        image: "strawberry-crush.jpg",
+
+        title: "Strawberry Crush",
+
+        price: "15 lei"
+
+    },
+
+
+    {
+        image: "electric-lemonade.jpg",
+
+        title: "Electric Lemonade",
+
+        price: "15 lei"
+
+    }
 
 ];
 
 
-/*
-========================================================
-CREARE CARDURI PIZZA / TURTA
-========================================================
-*/
+/* =====================================================
+   CREATE PIZZA / TURTA CARD
+===================================================== */
 
 function createCard(item) {
 
-    const article = document.createElement("article");
+
+    const article =
+        document.createElement("article");
+
 
     article.className = "card";
 
-    const image = document.createElement("img");
 
-    image.className = "card-image";
+    if (item.image) {
 
-    image.alt = item.title;
 
-    findImage(image, item.names);
+        const image =
+            document.createElement("img");
 
-    article.appendChild(image);
 
-    const content = document.createElement("div");
+        image.className =
+            "card-image";
 
-    content.className = "card-content";
 
-    const top = document.createElement("div");
+        image.src =
+            IMAGE_ROOT + item.image;
 
-    top.className = "card-top";
 
-    const title = document.createElement("h3");
+        image.alt =
+            item.title;
 
-    title.className = "card-title";
 
-    title.textContent = item.title;
+        image.onerror =
+            function() {
 
-    const price = document.createElement("div");
+                this.style.display = "none";
 
-    price.className = "price";
+            };
 
-    price.textContent = item.price;
+
+        article.appendChild(image);
+
+    }
+
+
+    const content =
+        document.createElement("div");
+
+
+    content.className =
+        "card-content";
+
+
+    const top =
+        document.createElement("div");
+
+
+    top.className =
+        "card-top";
+
+
+    const title =
+        document.createElement("h3");
+
+
+    title.className =
+        "card-title";
+
+
+    title.textContent =
+        item.title;
+
+
+    const price =
+        document.createElement("div");
+
+
+    price.className =
+        "price";
+
+
+    price.textContent =
+        item.price;
+
 
     top.appendChild(title);
 
+
     top.appendChild(price);
+
 
     content.appendChild(top);
 
-    const description = document.createElement("p");
 
-    description.className = "description";
+    const description =
+        document.createElement("p");
 
-    description.textContent = item.description;
+
+    description.className =
+        "description";
+
+
+    description.textContent =
+        item.description;
+
 
     content.appendChild(description);
 
-    if (item.ingredients && item.ingredients.length) {
 
-        const details = document.createElement("details");
+    if (
+        item.ingredients &&
+        item.ingredients.length
+    ) {
 
-        details.className = "ingredients";
 
-        const summary = document.createElement("summary");
+        const details =
+            document.createElement("details");
 
-        summary.textContent = "Ingrediente și gramaje";
+
+        details.className =
+            "ingredients";
+
+
+        const summary =
+            document.createElement("summary");
+
+
+        summary.textContent =
+            "Ingrediente și gramaje";
+
 
         details.appendChild(summary);
 
-        const ul = document.createElement("ul");
 
-        item.ingredients.forEach(function(ingredient) {
+        const ul =
+            document.createElement("ul");
 
-            const li = document.createElement("li");
 
-            li.textContent = ingredient;
+        item.ingredients.forEach(
+            function(ingredient) {
 
-            ul.appendChild(li);
 
-        });
+                const li =
+                    document.createElement("li");
+
+
+                li.textContent =
+                    ingredient;
+
+
+                ul.appendChild(li);
+
+
+            }
+        );
+
 
         details.appendChild(ul);
 
+
         content.appendChild(details);
+
     }
+
 
     article.appendChild(content);
 
+
     return article;
+
 }
 
 
-/*
-========================================================
-CREARE FOOD
-========================================================
-*/
+/* =====================================================
+   CREATE FOOD CARD
+===================================================== */
 
 function createFoodCard(item) {
 
-    const article = document.createElement("article");
 
-    article.className = "food-card";
+    const article =
+        document.createElement("article");
 
-    const image = document.createElement("img");
 
-    image.className = "food-image";
+    article.className =
+        "food-card";
 
-    image.alt = item.title;
 
-    findImage(image, item.names);
+    if (item.image) {
 
-    article.appendChild(image);
 
-    const content = document.createElement("div");
+        const image =
+            document.createElement("img");
 
-    content.className = "food-content";
 
-    const header = document.createElement("div");
+        image.className =
+            "food-image";
 
-    header.className = "food-header";
 
-    const title = document.createElement("h3");
+        image.src =
+            IMAGE_ROOT + item.image;
 
-    title.className = "food-name";
 
-    title.textContent = item.title;
+        image.alt =
+            item.title;
 
-    const price = document.createElement("div");
 
-    price.className = "food-price";
+        image.onerror =
+            function() {
 
-    price.textContent = item.price;
+                this.style.display = "none";
+
+            };
+
+
+        article.appendChild(image);
+
+    }
+
+
+    const content =
+        document.createElement("div");
+
+
+    content.className =
+        "food-content";
+
+
+    const header =
+        document.createElement("div");
+
+
+    header.className =
+        "food-header";
+
+
+    const title =
+        document.createElement("h3");
+
+
+    title.className =
+        "food-name";
+
+
+    title.textContent =
+        item.title;
+
+
+    const price =
+        document.createElement("div");
+
+
+    price.className =
+        "food-price";
+
+
+    price.textContent =
+        item.price;
+
 
     header.appendChild(title);
 
+
     header.appendChild(price);
+
 
     content.appendChild(header);
 
-    const description = document.createElement("p");
 
-    description.className = "food-description";
+    const description =
+        document.createElement("p");
 
-    description.textContent = item.description;
+
+    description.className =
+        "food-description";
+
+
+    description.textContent =
+        item.description;
+
 
     content.appendChild(description);
 
+
     if (item.extra) {
 
-        const extra = document.createElement("div");
 
-        extra.className = "food-extra";
+        const extra =
+            document.createElement("div");
 
-        extra.textContent = item.extra;
+
+        extra.className =
+            "food-extra";
+
+
+        extra.textContent =
+            item.extra;
+
 
         content.appendChild(extra);
+
     }
+
 
     article.appendChild(content);
 
+
     return article;
+
 }
 
 
-/*
-========================================================
-CREARE COCKTAIL
-========================================================
-*/
+/* =====================================================
+   CREATE COCKTAIL CARD
+===================================================== */
 
 function createCocktailCard(item) {
 
-    const article = document.createElement("article");
 
-    article.className = "cocktail-card";
+    const article =
+        document.createElement("article");
 
-    const content = document.createElement("div");
 
-    content.className = "cocktail-content";
+    article.className =
+        "cocktail-card";
 
-    const title = document.createElement("h3");
 
-    title.className = "cocktail-name";
+    article.style.backgroundImage =
+        "url('" +
+        IMAGE_ROOT +
+        item.image +
+        "')";
 
-    title.textContent = item.title;
 
-    const price = document.createElement("div");
+    const content =
+        document.createElement("div");
 
-    price.className = "cocktail-price";
 
-    price.textContent = item.price;
+    content.className =
+        "cocktail-content";
+
+
+    const title =
+        document.createElement("h3");
+
+
+    title.className =
+        "cocktail-name";
+
+
+    title.textContent =
+        item.title;
+
+
+    const price =
+        document.createElement("div");
+
+
+    price.className =
+        "cocktail-price";
+
+
+    price.textContent =
+        item.price;
+
 
     content.appendChild(title);
 
+
     content.appendChild(price);
+
 
     article.appendChild(content);
 
-    let currentIndex = 0;
-    let currentExtension = 0;
-
-    function findCocktailImage() {
-
-        if (currentIndex >= item.names.length) {
-            return;
-        }
-
-        if (currentExtension >= EXTENSIONS.length) {
-            currentIndex++;
-            currentExtension = 0;
-            findCocktailImage();
-            return;
-        }
-
-        const file =
-            IMAGE_ROOT +
-            item.names[currentIndex] +
-            EXTENSIONS[currentExtension];
-
-        const test = new Image();
-
-        test.onload = function() {
-
-            article.style.backgroundImage =
-                "url('" + file + "')";
-
-        };
-
-        test.onerror = function() {
-
-            currentExtension++;
-
-            findCocktailImage();
-
-        };
-
-        test.src = file;
-    }
-
-    findCocktailImage();
 
     return article;
+
 }
 
 
-/*
-========================================================
-AFISARE MENIU
-========================================================
-*/
+/* =====================================================
+   LOAD PIZZA
+===================================================== */
 
-const pizzaGrid = document.getElementById("pizza-grid");
-
-pizza.forEach(function(item) {
-
-    pizzaGrid.appendChild(
-        createCard(item)
+const pizzaGrid =
+    document.getElementById(
+        "pizza-grid"
     );
 
-});
+
+pizza.forEach(
+    function(item) {
+
+        pizzaGrid.appendChild(
+            createCard(item)
+        );
+
+    }
+);
 
 
-const turtaGrid = document.getElementById("turta-grid");
+/* =====================================================
+   LOAD TURTA
+===================================================== */
 
-turta.forEach(function(item) {
-
-    turtaGrid.appendChild(
-        createCard(item)
+const turtaGrid =
+    document.getElementById(
+        "turta-grid"
     );
 
-});
+
+turta.forEach(
+    function(item) {
+
+        turtaGrid.appendChild(
+            createCard(item)
+        );
+
+    }
+);
 
 
-const foodGrid = document.getElementById("food-grid");
+/* =====================================================
+   LOAD FOOD
+===================================================== */
 
-food.forEach(function(item) {
-
-    foodGrid.appendChild(
-        createFoodCard(item)
+const foodGrid =
+    document.getElementById(
+        "food-grid"
     );
 
-});
 
+food.forEach(
+    function(item) {
+
+        foodGrid.appendChild(
+            createFoodCard(item)
+        );
+
+    }
+);
+
+
+/* =====================================================
+   LOAD COCKTAILS
+===================================================== */
 
 const cocktailGrid =
-    document.getElementById("cocktail-grid");
-
-cocktails.forEach(function(item) {
-
-    cocktailGrid.appendChild(
-        createCocktailCard(item)
+    document.getElementById(
+        "cocktail-grid"
     );
 
-});
+
+cocktails.forEach(
+    function(item) {
+
+        cocktailGrid.appendChild(
+            createCocktailCard(item)
+        );
+
+    }
+);
+
+
+/* =====================================================
+   HEADER SLIDESHOW
+===================================================== */
+
+const slides =
+    document.querySelectorAll(
+        ".hero-slide"
+    );
+
+
+const dots =
+    document.querySelectorAll(
+        ".hero-dot"
+    );
+
+
+let currentSlide = 0;
+
+
+function showSlide(index) {
+
+
+    slides.forEach(
+        function(slide, i) {
+
+            slide.classList.toggle(
+                "active",
+                i === index
+            );
+
+        }
+    );
+
+
+    dots.forEach(
+        function(dot, i) {
+
+            dot.classList.toggle(
+                "active",
+                i === index
+            );
+
+        }
+    );
+
+}
+
+
+function nextSlide() {
+
+
+    currentSlide++;
+
+    if (
+        currentSlide >= slides.length
+    ) {
+
+        currentSlide = 0;
+
+    }
+
+
+    showSlide(currentSlide);
+
+}
+
+
+setInterval(
+    nextSlide,
+    5000
+);
+
+
+/* =====================================================
+   CLICK PE DOTURI
+===================================================== */
+
+dots.forEach(
+    function(dot, index) {
+
+
+        dot.addEventListener(
+            "click",
+            function() {
+
+                currentSlide =
+                    index;
+
+                showSlide(
+                    currentSlide
+                );
+
+            }
+        );
+
+
+    }
+);
 
 </script>
+
 
 </body>
 </html>
