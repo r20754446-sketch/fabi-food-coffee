@@ -22,7 +22,7 @@
     --pink-soft: #ffe1ec;
     --dark: #171717;
     --gray: #666;
-    --white: #ffffff;
+    --white: #fff;
     --border: #f1d6e1;
     --shadow: 0 10px 30px rgba(0,0,0,.08);
 }
@@ -64,17 +64,9 @@ img {
     justify-content: center;
     text-align: center;
     color: white;
-
     background:
-        linear-gradient(
-            rgba(0,0,0,.65),
-            rgba(0,0,0,.65)
-        ),
-        linear-gradient(
-            135deg,
-            #e91e63,
-            #8e1745
-        );
+        linear-gradient(rgba(0,0,0,.65), rgba(0,0,0,.65)),
+        linear-gradient(135deg, #e91e63, #8e1745);
 }
 
 .hero-content {
@@ -194,7 +186,8 @@ img {
 /* CARDS */
 
 .grid,
-.food-grid {
+.food-grid,
+.cocktail-grid {
     display: grid;
     grid-template-columns: repeat(3,1fr);
     gap: 25px;
@@ -221,6 +214,7 @@ img {
     width: 100%;
     height: 230px;
     object-fit: cover;
+    background: linear-gradient(135deg,#ffe1ec,#fff0f6);
 }
 
 .card-content,
@@ -312,12 +306,6 @@ img {
 
 /* COCKTAILS */
 
-.cocktail-grid {
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    gap: 25px;
-}
-
 .cocktail-card {
     position: relative;
     min-height: 300px;
@@ -328,6 +316,7 @@ img {
     box-shadow: var(--shadow);
     background-size: cover;
     background-position: center;
+    background-color: #e91e63;
     transition: .25s ease;
 }
 
@@ -424,11 +413,7 @@ img {
 
 .good-food {
     padding: 75px 20px;
-    background: linear-gradient(
-        135deg,
-        #e91e63,
-        #c2185b
-    );
+    background: linear-gradient(135deg,#e91e63,#c2185b);
     color: white;
     text-align: center;
 }
@@ -575,11 +560,13 @@ footer strong {
 
 <body>
 
-<!-- HERO -->
-
 <header class="hero">
+
     <div class="hero-content">
-        <div class="hero-logo">Fabi</div>
+
+        <div class="hero-logo">
+            Fabi
+        </div>
 
         <div class="hero-subtitle">
             FOOD & COFFEE
@@ -590,13 +577,14 @@ footer strong {
         <div class="hero-description">
             INGREDIENTE PROASPETE, GUST DESĂVÂRȘIT!
         </div>
+
     </div>
+
 </header>
 
 
-<!-- NAVIGATION -->
-
 <nav class="nav">
+
     <div class="nav-container">
 
         <a href="#pizza">🍕 PIZZA</a>
@@ -607,6 +595,7 @@ footer strong {
         <a href="#contact">📞 CONTACT</a>
 
     </div>
+
 </nav>
 
 
@@ -630,569 +619,8 @@ Pizza pregătită cu ingrediente proaspete
 
 </div>
 
+<div class="grid" id="pizza-grid"></div>
 
-<div class="grid">
-
-
-<!-- MARGHERITA -->
-
-<article class="card">
-
-<img
-class="card-image"
-src="images/margherita.jpg"
-alt="Pizza Margherita"
->
-
-<div class="card-content">
-
-<div class="card-top">
-
-<h3 class="card-title">
-PIZZA MARGHERITA
-</h3>
-
-<div class="price">
-28 lei
-</div>
-
-</div>
-
-<p class="description">
-Sos de roșii, mozzarella, busuioc
-</p>
-
-<details class="ingredients">
-
-<summary>
-Ingrediente și gramaje
-</summary>
-
-<ul>
-
-<li>Mozzarella — 150 g</li>
-<li>Sos de roșii — 100 g</li>
-<li>Busuioc — 100 g</li>
-
-</ul>
-
-</details>
-
-</div>
-
-</article>
-
-
-<!-- CAPRICIOSA -->
-
-<article class="card">
-
-<img
-class="card-image"
-src="images/capriciosa.jpg"
-alt="Pizza Capriciosa"
->
-
-<div class="card-content">
-
-<div class="card-top">
-
-<h3 class="card-title">
-CAPRICIOSA
-</h3>
-
-<div class="price">
-33 lei
-</div>
-
-</div>
-
-<p class="description">
-Șuncă, mozzarella, anghinare, sos de roșii, măsline
-</p>
-
-<details class="ingredients">
-
-<summary>
-Ingrediente și gramaje
-</summary>
-
-<ul>
-
-<li>Mozzarella — 150 g</li>
-<li>Șuncă — 50 g</li>
-<li>Anghinare — 40 g</li>
-<li>Sos de roșii — 100 g</li>
-<li>Măsline — 30 g</li>
-
-</ul>
-
-</details>
-
-</div>
-
-</article>
-
-
-<!-- QUATTRO FORMAGGI -->
-
-<article class="card">
-
-<img
-class="card-image"
-src="images/quattro-formaggi.jpg"
-alt="Pizza Quattro Formaggi"
->
-
-<div class="card-content">
-
-<div class="card-top">
-
-<h3 class="card-title">
-QUATTRO FORMAGGI
-</h3>
-
-<div class="price">
-33 lei
-</div>
-
-</div>
-
-<p class="description">
-Mozzarella, parmezan, gorgonzola, emmentaler
-</p>
-
-<details class="ingredients">
-
-<summary>
-Ingrediente și gramaje
-</summary>
-
-<ul>
-
-<li>Mozzarella — 150 g</li>
-<li>Parmezan — 40 g</li>
-<li>Gorgonzola — 40 g</li>
-<li>Emmentaler — 40 g</li>
-
-</ul>
-
-</details>
-
-</div>
-
-</article>
-
-
-<!-- QUATTRO STAGIONI -->
-
-<article class="card">
-
-<img
-class="card-image"
-src="images/quattro-stagioni.jpg"
-alt="Pizza Quattro Stagioni"
->
-
-<div class="card-content">
-
-<div class="card-top">
-
-<h3 class="card-title">
-QUATTRO STAGIONI
-</h3>
-
-<div class="price">
-33 lei
-</div>
-
-</div>
-
-<p class="description">
-Mozzarella, sos de roșii, salam, șuncă, ciuperci, măsline
-</p>
-
-<details class="ingredients">
-
-<summary>
-Ingrediente și gramaje
-</summary>
-
-<ul>
-
-<li>Mozzarella — 150 g</li>
-<li>Sos de roșii — 100 g</li>
-<li>Salam — 50 g</li>
-<li>Șuncă — 50 g</li>
-<li>Ciuperci — 40 g</li>
-<li>Măsline — 30 g</li>
-
-</ul>
-
-</details>
-
-</div>
-
-</article>
-
-
-<!-- TON -->
-
-<article class="card">
-
-<img
-class="card-image"
-src="images/pizza-ton.jpg"
-alt="Pizza cu Ton"
->
-
-<div class="card-content">
-
-<div class="card-top">
-
-<h3 class="card-title">
-PIZZA CU TON
-</h3>
-
-<div class="price">
-33 lei
-</div>
-
-</div>
-
-<p class="description">
-Sos de roșii, ceapă, ton
-</p>
-
-<details class="ingredients">
-
-<summary>
-Ingrediente și gramaje
-</summary>
-
-<ul>
-
-<li>Mozzarella — 150 g</li>
-<li>Sos de roșii — 100 g</li>
-<li>Ton — 70 g</li>
-<li>Ceapă — 30 g</li>
-
-</ul>
-
-</details>
-
-</div>
-
-</article>
-
-
-<!-- DIAVOLA -->
-
-<article class="card">
-
-<img
-class="card-image"
-src="images/diavola.jpg"
-alt="Pizza Diavola"
->
-
-<div class="card-content">
-
-<div class="card-top">
-
-<h3 class="card-title">
-PIZZA DIAVOLA
-</h3>
-
-<div class="price">
-33 lei
-</div>
-
-</div>
-
-<p class="description">
-Sos de roșii, salam picant, mozzarella
-</p>
-
-<details class="ingredients">
-
-<summary>
-Ingrediente și gramaje
-</summary>
-
-<ul>
-
-<li>Mozzarella — 150 g</li>
-<li>Sos de roșii — 100 g</li>
-<li>Salam picant — 70 g</li>
-
-</ul>
-
-</details>
-
-</div>
-
-</article>
-
-
-<!-- PROSCIUTTO -->
-
-<article class="card">
-
-<img
-class="card-image"
-src="images/prosciutto-crudo.jpg"
-alt="Prosciutto Crudo"
->
-
-<div class="card-content">
-
-<div class="card-top">
-
-<h3 class="card-title">
-PROSCIUTTO CRUDO
-</h3>
-
-<div class="price">
-33 lei
-</div>
-
-</div>
-
-<p class="description">
-Șuncă, mozzarella, parmezan, rucola, sos de roșii
-</p>
-
-<details class="ingredients">
-
-<summary>
-Ingrediente și gramaje
-</summary>
-
-<ul>
-
-<li>Mozzarella — 150 g</li>
-<li>Șuncă — 70 g</li>
-<li>Parmezan — 30 g</li>
-<li>Rucola — 20 g</li>
-<li>Sos de roșii — 100 g</li>
-
-</ul>
-
-</details>
-
-</div>
-
-</article>
-
-
-<!-- HAWAI -->
-
-<article class="card">
-
-<img
-class="card-image"
-src="images/hawai.jpg"
-alt="Pizza Hawai"
->
-
-<div class="card-content">
-
-<div class="card-top">
-
-<h3 class="card-title">
-HAWAI
-</h3>
-
-<div class="price">
-33 lei
-</div>
-
-</div>
-
-<p class="description">
-Sos de roșii, mozzarella, ananas, șuncă
-</p>
-
-<details class="ingredients">
-
-<summary>
-Ingrediente și gramaje
-</summary>
-
-<ul>
-
-<li>Mozzarella — 150 g</li>
-<li>Sos de roșii — 100 g</li>
-<li>Ananas — 60 g</li>
-<li>Șuncă — 50 g</li>
-
-</ul>
-
-</details>
-
-</div>
-
-</article>
-
-
-<!-- FABI DELUXE -->
-
-<article class="card">
-
-<img
-class="card-image"
-src="images/fabi-deluxe.jpg"
-alt="Pizza Fabi Deluxe"
->
-
-<div class="card-content">
-
-<div class="card-top">
-
-<h3 class="card-title">
-FABI DELUXE
-</h3>
-
-<div class="price">
-35 lei
-</div>
-
-</div>
-
-<p class="description">
-Salam, mozzarella, șuncă, cârnățiori, bacon, ciuperci, măsline, porumb
-</p>
-
-<details class="ingredients">
-
-<summary>
-Ingrediente și gramaje
-</summary>
-
-<ul>
-
-<li>Mozzarella — 150 g</li>
-<li>Sos de roșii — 100 g</li>
-<li>Salam — 50 g</li>
-<li>Șuncă — 50 g</li>
-<li>Cârnățiori — 50 g</li>
-<li>Bacon — 40 g</li>
-<li>Ciuperci — 40 g</li>
-<li>Măsline — 30 g</li>
-<li>Porumb — 30 g</li>
-
-</ul>
-
-</details>
-
-</div>
-
-</article>
-
-
-<!-- VEGETARIANA -->
-
-<article class="card">
-
-<img
-class="card-image"
-src="images/vegetariana.jpg"
-alt="Pizza Vegetariana"
->
-
-<div class="card-content">
-
-<div class="card-top">
-
-<h3 class="card-title">
-VEGETARIANA
-</h3>
-
-<div class="price">
-33 lei
-</div>
-
-</div>
-
-<p class="description">
-Sos de roșii, mozzarella, ciuperci, ardei, măsline, porumb
-</p>
-
-<details class="ingredients">
-
-<summary>
-Ingrediente și gramaje
-</summary>
-
-<ul>
-
-<li>Mozzarella — 150 g</li>
-<li>Sos de roșii — 100 g</li>
-<li>Ciuperci — 50 g</li>
-<li>Ardei — 50 g</li>
-<li>Măsline — 30 g</li>
-<li>Porumb — 30 g</li>
-
-</ul>
-
-</details>
-
-</div>
-
-</article>
-
-
-<!-- PIZZA PUI -->
-
-<article class="card">
-
-<img
-class="card-image"
-src="images/pizza-pui.jpg"
-alt="Pizza cu Piept de Pui"
->
-
-<div class="card-content">
-
-<div class="card-top">
-
-<h3 class="card-title">
-PIZZA CU PIEPT DE PUI
-</h3>
-
-<div class="price">
-33 lei
-</div>
-
-</div>
-
-<p class="description">
-Sos de roșii, mozzarella, piept de pui
-</p>
-
-<details class="ingredients">
-
-<summary>
-Ingrediente și gramaje
-</summary>
-
-<ul>
-
-<li>Mozzarella — 150 g</li>
-<li>Sos de roșii — 100 g</li>
-<li>Piept de pui — 80 g</li>
-
-</ul>
-
-</details>
-
-</div>
-
-</article>
-
-
-</div>
 </div>
 
 </section>
@@ -1218,103 +646,8 @@ Simplu, gustos și proaspăt
 
 </div>
 
+<div class="grid" id="turta-grid"></div>
 
-<div class="grid">
-
-
-<article class="card">
-
-<img
-class="card-image"
-src="images/turta-sunca.jpg"
-alt="Turtă Șuncă"
->
-
-<div class="card-content">
-
-<div class="card-top">
-
-<h3 class="card-title">
-TURTĂ ȘUNCĂ
-</h3>
-
-<div class="price">
-15 lei
-</div>
-
-</div>
-
-<p class="description">
-Mozzarella, șuncă
-</p>
-
-<details class="ingredients">
-
-<summary>
-Ingrediente și gramaje
-</summary>
-
-<ul>
-
-<li>Mozzarella — 120 g</li>
-<li>Șuncă — 60 g</li>
-
-</ul>
-
-</details>
-
-</div>
-
-</article>
-
-
-<article class="card">
-
-<img
-class="card-image"
-src="images/turta-pui.jpg"
-alt="Turtă Pui"
->
-
-<div class="card-content">
-
-<div class="card-top">
-
-<h3 class="card-title">
-TURTĂ PUI
-</h3>
-
-<div class="price">
-15 lei
-</div>
-
-</div>
-
-<p class="description">
-Mozzarella, piept de pui
-</p>
-
-<details class="ingredients">
-
-<summary>
-Ingrediente și gramaje
-</summary>
-
-<ul>
-
-<li>Mozzarella — 120 g</li>
-<li>Piept de pui — 80 g</li>
-
-</ul>
-
-</details>
-
-</div>
-
-</article>
-
-
-</div>
 </div>
 
 </section>
@@ -1340,254 +673,8 @@ Burgeri, shaorma, crispy și preparate delicioase
 
 </div>
 
+<div class="food-grid" id="food-grid"></div>
 
-<div class="food-grid">
-
-
-<!-- ROYAL BURGER -->
-
-<article class="food-card">
-
-<img
-class="food-image"
-src="images/burger-royal.jpg"
-alt="Royal Burger"
->
-
-<div class="food-content">
-
-<div class="food-header">
-
-<h3 class="food-name">
-ROYAL BURGER
-</h3>
-
-<div class="food-price">
-30 lei
-</div>
-
-</div>
-
-<p class="food-description">
-Carne de vită, castraveți murați, sos, roșii, salată, cheddar, bacon
-</p>
-
-<div class="food-extra">
-+ CARTOFI + SOS
-</div>
-
-</div>
-
-</article>
-
-
-<!-- BURGER PUI -->
-
-<article class="food-card">
-
-<img
-class="food-image"
-src="images/burger-pui.jpg"
-alt="Burger Pui"
->
-
-<div class="food-content">
-
-<div class="food-header">
-
-<h3 class="food-name">
-BURGER PUI
-</h3>
-
-<div class="food-price">
-18 lei
-</div>
-
-</div>
-
-<p class="food-description">
-Carne de pui, cheddar, sos, salată, roșii
-</p>
-
-<div class="food-extra">
-+ CARTOFI + SOS
-</div>
-
-</div>
-
-</article>
-
-
-<!-- SNITEL -->
-
-<article class="food-card">
-
-<img
-class="food-image"
-src="images/snitel-xxl.jpg"
-alt="Șnițel XXL"
->
-
-<div class="food-content">
-
-<div class="food-header">
-
-<h3 class="food-name">
-ȘNIȚEL XXL
-</h3>
-
-<div class="food-price">
-30 lei
-</div>
-
-</div>
-
-<p class="food-description">
-Șnițel de pui, salată de varză
-</p>
-
-<div class="food-extra">
-+ CARTOFI + SOS
-</div>
-
-</div>
-
-</article>
-
-
-<!-- SHAORMA -->
-
-<article class="food-card">
-
-<img
-class="food-image"
-src="images/shaorma.jpg"
-alt="Shaorma"
->
-
-<div class="food-content">
-
-<div class="food-header">
-
-<h3 class="food-name">
-SHAORMA
-</h3>
-
-<div class="food-price">
-30 lei
-</div>
-
-</div>
-
-<p class="food-description">
-Sos, cartofi, salată, carne de pui, lipie proaspătă
-</p>
-
-</div>
-
-</article>
-
-
-<!-- SHAORMA FARFURIE -->
-
-<article class="food-card">
-
-<img
-class="food-image"
-src="images/shaorma-farfurie.jpg"
-alt="Shaorma la farfurie"
->
-
-<div class="food-content">
-
-<div class="food-header">
-
-<h3 class="food-name">
-SHAORMA LA FARFURIE
-</h3>
-
-<div class="food-price">
-35 lei
-</div>
-
-</div>
-
-<p class="food-description">
-Carne de pui, sos, cartofi, salată, chiflă
-</p>
-
-</div>
-
-</article>
-
-
-<!-- CRISPY -->
-
-<article class="food-card">
-
-<img
-class="food-image"
-src="images/crispy-pui.jpg"
-alt="Crispy de Pui"
->
-
-<div class="food-content">
-
-<div class="food-header">
-
-<h3 class="food-name">
-CRISPY DE PUI
-</h3>
-
-<div class="food-price">
-29 lei
-</div>
-
-</div>
-
-<p class="food-description">
-Crispy de pui, cartofi, sos
-</p>
-
-</div>
-
-</article>
-
-
-<!-- BURGER CHEDDAR -->
-
-<article class="food-card">
-
-<img
-class="food-image"
-src="images/burger-cheddar.jpg"
-alt="Burger în Cheddar"
->
-
-<div class="food-content">
-
-<div class="food-header">
-
-<h3 class="food-name">
-BURGER ÎN CHEDDAR
-</h3>
-
-<div class="food-price">
-40 lei
-</div>
-
-</div>
-
-<p class="food-description">
-Carne de vită, cheddar, cartofi, sos
-</p>
-
-</div>
-
-</article>
-
-
-</div>
 </div>
 
 </section>
@@ -1613,71 +700,8 @@ Cocktail-uri fresh pentru o experiență și mai plăcută
 
 </div>
 
+<div class="cocktail-grid" id="cocktail-grid"></div>
 
-<div class="cocktail-grid">
-
-
-<article
-class="cocktail-card"
-style="background-image:url('images/blue-lagoon.jpg')"
->
-
-<div class="cocktail-content">
-
-<h3 class="cocktail-name">
-Blue Lagoon
-</h3>
-
-<div class="cocktail-price">
-15 lei
-</div>
-
-</div>
-
-</article>
-
-
-<article
-class="cocktail-card"
-style="background-image:url('images/strawberry-crush.jpg')"
->
-
-<div class="cocktail-content">
-
-<h3 class="cocktail-name">
-Strawberry Crush
-</h3>
-
-<div class="cocktail-price">
-15 lei
-</div>
-
-</div>
-
-</article>
-
-
-<article
-class="cocktail-card"
-style="background-image:url('images/electric-lemonade.jpg')"
->
-
-<div class="cocktail-content">
-
-<h3 class="cocktail-name">
-Electric Lemonade
-</h3>
-
-<div class="cocktail-price">
-15 lei
-</div>
-
-</div>
-
-</article>
-
-
-</div>
 </div>
 
 </section>
@@ -1703,9 +727,7 @@ Alege dimensiunea potrivită pentru tine
 
 </div>
 
-
 <div class="dimensions">
-
 
 <article class="dimension-card">
 
@@ -1766,14 +788,11 @@ Alege dimensiunea potrivită pentru tine
 
 </article>
 
-
 </div>
-
 
 <p class="note">
 Gramajele pot varia în funcție de sortimentul de pizza.
 </p>
-
 
 </div>
 
@@ -1800,7 +819,6 @@ Fabi FOOD & COFFEE
 <section class="contact" id="contact">
 
 <div class="contact-container">
-
 
 <div class="contact-box">
 
@@ -1864,30 +882,690 @@ Luni – Duminică
 
 </div>
 
-
 </div>
 
 </section>
 
 
-<!-- FOOTER -->
-
 <footer>
 
 <p>
-
 © 2026
-
-<strong>
-Fabi FOOD & COFFEE
-</strong>
-
+<strong>Fabi FOOD & COFFEE</strong>
 — Toate drepturile rezervate.
-
 </p>
 
 </footer>
 
+
+<script>
+
+/*
+========================================================
+CONFIGURARE IMAGINI
+========================================================
+
+Imaginile sunt în:
+
+fabi-food-and-coffee/images/
+
+Codul încearcă automat:
+.jpg
+.jpeg
+.png
+.webp
+.avif
+.JPEG
+.JPG
+.PNG
+.WEBP
+.AVIF
+
+Deci nu contează extensia imaginii.
+========================================================
+*/
+
+const IMAGE_ROOT = "fabi-food-and-coffee/images/";
+
+const EXTENSIONS = [
+    ".jpg",
+    ".jpeg",
+    ".png",
+    ".webp",
+    ".avif",
+    ".JPG",
+    ".JPEG",
+    ".PNG",
+    ".WEBP",
+    ".AVIF"
+];
+
+
+/*
+========================================================
+SISTEM AUTOMAT PENTRU IMAGINI
+========================================================
+*/
+
+function findImage(element, names, index = 0, extensionIndex = 0) {
+
+    if (!Array.isArray(names)) {
+        names = [names];
+    }
+
+    if (index >= names.length) {
+        element.style.display = "none";
+        return;
+    }
+
+    if (extensionIndex >= EXTENSIONS.length) {
+        findImage(element, names, index + 1, 0);
+        return;
+    }
+
+    const file = IMAGE_ROOT + names[index] + EXTENSIONS[extensionIndex];
+
+    const test = new Image();
+
+    test.onload = function() {
+        element.src = file;
+    };
+
+    test.onerror = function() {
+        findImage(element, names, index, extensionIndex + 1);
+    };
+
+    test.src = file;
+}
+
+
+/*
+========================================================
+PIZZA
+========================================================
+*/
+
+const pizza = [
+
+{
+    names: ["margherita"],
+    title: "PIZZA MARGHERITA",
+    price: "28 lei",
+    description: "Sos de roșii, mozzarella, busuioc",
+    ingredients: [
+        "Mozzarella — 150 g",
+        "Sos de roșii — 100 g",
+        "Busuioc — 100 g"
+    ]
+},
+
+{
+    names: ["capriciosa", "capricioasa"],
+    title: "CAPRICIOSA",
+    price: "33 lei",
+    description: "Șuncă, mozzarella, anghinare, sos de roșii, măsline",
+    ingredients: [
+        "Mozzarella — 150 g",
+        "Șuncă — 50 g",
+        "Anghinare — 40 g",
+        "Sos de roșii — 100 g",
+        "Măsline — 30 g"
+    ]
+},
+
+{
+    names: ["quattro-formaggi", "quattroformaggi"],
+    title: "QUATTRO FORMAGGI",
+    price: "33 lei",
+    description: "Mozzarella, parmezan, gorgonzola, emmentaler",
+    ingredients: [
+        "Mozzarella — 150 g",
+        "Parmezan — 40 g",
+        "Gorgonzola — 40 g",
+        "Emmentaler — 40 g"
+    ]
+},
+
+{
+    names: ["quattro-stagioni", "quattrostagioni"],
+    title: "QUATTRO STAGIONI",
+    price: "33 lei",
+    description: "Mozzarella, sos de roșii, salam, șuncă, ciuperci, măsline",
+    ingredients: [
+        "Mozzarella — 150 g",
+        "Sos de roșii — 100 g",
+        "Salam — 50 g",
+        "Șuncă — 50 g",
+        "Ciuperci — 40 g",
+        "Măsline — 30 g"
+    ]
+},
+
+{
+    names: ["pizza-ton", "ton"],
+    title: "PIZZA CU TON",
+    price: "33 lei",
+    description: "Sos de roșii, ceapă, ton",
+    ingredients: [
+        "Mozzarella — 150 g",
+        "Sos de roșii — 100 g",
+        "Ton — 70 g",
+        "Ceapă — 30 g"
+    ]
+},
+
+{
+    names: ["diavola"],
+    title: "PIZZA DIAVOLA",
+    price: "33 lei",
+    description: "Sos de roșii, salam picant, mozzarella",
+    ingredients: [
+        "Mozzarella — 150 g",
+        "Sos de roșii — 100 g",
+        "Salam picant — 70 g"
+    ]
+},
+
+{
+    names: ["prosciutto-crudo", "prosciutto"],
+    title: "PROSCIUTTO CRUDO",
+    price: "33 lei",
+    description: "Șuncă, mozzarella, parmezan, rucola, sos de roșii",
+    ingredients: [
+        "Mozzarella — 150 g",
+        "Șuncă — 70 g",
+        "Parmezan — 30 g",
+        "Rucola — 20 g",
+        "Sos de roșii — 100 g"
+    ]
+},
+
+{
+    names: ["pizza-hawai", "hawai", "hawaii"],
+    title: "HAWAI",
+    price: "33 lei",
+    description: "Sos de roșii, mozzarella, ananas, șuncă",
+    ingredients: [
+        "Mozzarella — 150 g",
+        "Sos de roșii — 100 g",
+        "Ananas — 60 g",
+        "Șuncă — 50 g"
+    ]
+},
+
+{
+    names: ["fabi-deluxe", "fabi-deluxe-pizza", "fabideluxe"],
+    title: "FABI DELUXE",
+    price: "35 lei",
+    description: "Salam, mozzarella, șuncă, cârnățiori, bacon, ciuperci, măsline, porumb",
+    ingredients: [
+        "Mozzarella — 150 g",
+        "Sos de roșii — 100 g",
+        "Salam — 50 g",
+        "Șuncă — 50 g",
+        "Cârnățiori — 50 g",
+        "Bacon — 40 g",
+        "Ciuperci — 40 g",
+        "Măsline — 30 g",
+        "Porumb — 30 g"
+    ]
+},
+
+{
+    names: ["vegetariana", "vegetarian"],
+    title: "VEGETARIANA",
+    price: "33 lei",
+    description: "Sos de roșii, mozzarella, ciuperci, ardei, măsline, porumb",
+    ingredients: [
+        "Mozzarella — 150 g",
+        "Sos de roșii — 100 g",
+        "Ciuperci — 50 g",
+        "Ardei — 50 g",
+        "Măsline — 30 g",
+        "Porumb — 30 g"
+    ]
+},
+
+{
+    names: ["pizza-pui", "pui", "pizza-cu-pui"],
+    title: "PIZZA CU PIEPT DE PUI",
+    price: "33 lei",
+    description: "Sos de roșii, mozzarella, piept de pui",
+    ingredients: [
+        "Mozzarella — 150 g",
+        "Sos de roșii — 100 g",
+        "Piept de pui — 80 g"
+    ]
+}
+
+];
+
+
+/*
+========================================================
+TURTA
+========================================================
+*/
+
+const turta = [
+
+{
+    names: ["turta-sunca", "turta-sunca"],
+    title: "TURTĂ ȘUNCĂ",
+    price: "15 lei",
+    description: "Mozzarella, șuncă",
+    ingredients: [
+        "Mozzarella — 120 g",
+        "Șuncă — 60 g"
+    ]
+},
+
+{
+    names: ["turta-pui"],
+    title: "TURTĂ PUI",
+    price: "15 lei",
+    description: "Mozzarella, piept de pui",
+    ingredients: [
+        "Mozzarella — 120 g",
+        "Piept de pui — 80 g"
+    ]
+}
+
+];
+
+
+/*
+========================================================
+FOOD
+========================================================
+*/
+
+const food = [
+
+{
+    names: ["burger-royal", "royal-burger"],
+    title: "ROYAL BURGER",
+    price: "30 lei",
+    description: "Carne de vită, castraveți murați, sos, roșii, salată, cheddar, bacon",
+    extra: "+ CARTOFI + SOS"
+},
+
+{
+    names: ["burger-pui"],
+    title: "BURGER PUI",
+    price: "18 lei",
+    description: "Carne de pui, cheddar, sos, salată, roșii",
+    extra: "+ CARTOFI + SOS"
+},
+
+{
+    names: ["snitel-xxl", "snitel"],
+    title: "ȘNIȚEL XXL",
+    price: "30 lei",
+    description: "Șnițel de pui, salată de varză",
+    extra: "+ CARTOFI + SOS"
+},
+
+{
+    names: ["shaorma"],
+    title: "SHAORMA",
+    price: "30 lei",
+    description: "Sos, cartofi, salată, carne de pui, lipie proaspătă",
+    extra: ""
+},
+
+{
+    names: ["shaorma-farfurie"],
+    title: "SHAORMA LA FARFURIE",
+    price: "35 lei",
+    description: "Carne de pui, sos, cartofi, salată, chiflă",
+    extra: ""
+},
+
+{
+    names: ["crispy-pui", "meniu-crispy", "crispy"],
+    title: "CRISPY DE PUI",
+    price: "29 lei",
+    description: "Crispy de pui, cartofi, sos",
+    extra: ""
+},
+
+{
+    names: ["burger-cheddar"],
+    title: "BURGER ÎN CHEDDAR",
+    price: "40 lei",
+    description: "Carne de vită, cheddar, cartofi, sos",
+    extra: ""
+}
+
+];
+
+
+/*
+========================================================
+COCKTAILURI
+========================================================
+*/
+
+const cocktails = [
+
+{
+    names: ["blue-lagoon", "bluelagoon"],
+    title: "Blue Lagoon",
+    price: "15 lei"
+},
+
+{
+    names: ["strawberry-crush", "strawberrycrush"],
+    title: "Strawberry Crush",
+    price: "15 lei"
+},
+
+{
+    names: ["electric-lemonade", "electriclemonade"],
+    title: "Electric Lemonade",
+    price: "15 lei"
+}
+
+];
+
+
+/*
+========================================================
+CREARE CARDURI PIZZA / TURTA
+========================================================
+*/
+
+function createCard(item) {
+
+    const article = document.createElement("article");
+
+    article.className = "card";
+
+    const image = document.createElement("img");
+
+    image.className = "card-image";
+
+    image.alt = item.title;
+
+    findImage(image, item.names);
+
+    article.appendChild(image);
+
+    const content = document.createElement("div");
+
+    content.className = "card-content";
+
+    const top = document.createElement("div");
+
+    top.className = "card-top";
+
+    const title = document.createElement("h3");
+
+    title.className = "card-title";
+
+    title.textContent = item.title;
+
+    const price = document.createElement("div");
+
+    price.className = "price";
+
+    price.textContent = item.price;
+
+    top.appendChild(title);
+
+    top.appendChild(price);
+
+    content.appendChild(top);
+
+    const description = document.createElement("p");
+
+    description.className = "description";
+
+    description.textContent = item.description;
+
+    content.appendChild(description);
+
+    if (item.ingredients && item.ingredients.length) {
+
+        const details = document.createElement("details");
+
+        details.className = "ingredients";
+
+        const summary = document.createElement("summary");
+
+        summary.textContent = "Ingrediente și gramaje";
+
+        details.appendChild(summary);
+
+        const ul = document.createElement("ul");
+
+        item.ingredients.forEach(function(ingredient) {
+
+            const li = document.createElement("li");
+
+            li.textContent = ingredient;
+
+            ul.appendChild(li);
+
+        });
+
+        details.appendChild(ul);
+
+        content.appendChild(details);
+    }
+
+    article.appendChild(content);
+
+    return article;
+}
+
+
+/*
+========================================================
+CREARE FOOD
+========================================================
+*/
+
+function createFoodCard(item) {
+
+    const article = document.createElement("article");
+
+    article.className = "food-card";
+
+    const image = document.createElement("img");
+
+    image.className = "food-image";
+
+    image.alt = item.title;
+
+    findImage(image, item.names);
+
+    article.appendChild(image);
+
+    const content = document.createElement("div");
+
+    content.className = "food-content";
+
+    const header = document.createElement("div");
+
+    header.className = "food-header";
+
+    const title = document.createElement("h3");
+
+    title.className = "food-name";
+
+    title.textContent = item.title;
+
+    const price = document.createElement("div");
+
+    price.className = "food-price";
+
+    price.textContent = item.price;
+
+    header.appendChild(title);
+
+    header.appendChild(price);
+
+    content.appendChild(header);
+
+    const description = document.createElement("p");
+
+    description.className = "food-description";
+
+    description.textContent = item.description;
+
+    content.appendChild(description);
+
+    if (item.extra) {
+
+        const extra = document.createElement("div");
+
+        extra.className = "food-extra";
+
+        extra.textContent = item.extra;
+
+        content.appendChild(extra);
+    }
+
+    article.appendChild(content);
+
+    return article;
+}
+
+
+/*
+========================================================
+CREARE COCKTAIL
+========================================================
+*/
+
+function createCocktailCard(item) {
+
+    const article = document.createElement("article");
+
+    article.className = "cocktail-card";
+
+    const content = document.createElement("div");
+
+    content.className = "cocktail-content";
+
+    const title = document.createElement("h3");
+
+    title.className = "cocktail-name";
+
+    title.textContent = item.title;
+
+    const price = document.createElement("div");
+
+    price.className = "cocktail-price";
+
+    price.textContent = item.price;
+
+    content.appendChild(title);
+
+    content.appendChild(price);
+
+    article.appendChild(content);
+
+    let currentIndex = 0;
+    let currentExtension = 0;
+
+    function findCocktailImage() {
+
+        if (currentIndex >= item.names.length) {
+            return;
+        }
+
+        if (currentExtension >= EXTENSIONS.length) {
+            currentIndex++;
+            currentExtension = 0;
+            findCocktailImage();
+            return;
+        }
+
+        const file =
+            IMAGE_ROOT +
+            item.names[currentIndex] +
+            EXTENSIONS[currentExtension];
+
+        const test = new Image();
+
+        test.onload = function() {
+
+            article.style.backgroundImage =
+                "url('" + file + "')";
+
+        };
+
+        test.onerror = function() {
+
+            currentExtension++;
+
+            findCocktailImage();
+
+        };
+
+        test.src = file;
+    }
+
+    findCocktailImage();
+
+    return article;
+}
+
+
+/*
+========================================================
+AFISARE MENIU
+========================================================
+*/
+
+const pizzaGrid = document.getElementById("pizza-grid");
+
+pizza.forEach(function(item) {
+
+    pizzaGrid.appendChild(
+        createCard(item)
+    );
+
+});
+
+
+const turtaGrid = document.getElementById("turta-grid");
+
+turta.forEach(function(item) {
+
+    turtaGrid.appendChild(
+        createCard(item)
+    );
+
+});
+
+
+const foodGrid = document.getElementById("food-grid");
+
+food.forEach(function(item) {
+
+    foodGrid.appendChild(
+        createFoodCard(item)
+    );
+
+});
+
+
+const cocktailGrid =
+    document.getElementById("cocktail-grid");
+
+cocktails.forEach(function(item) {
+
+    cocktailGrid.appendChild(
+        createCocktailCard(item)
+    );
+
+});
+
+</script>
 
 </body>
 </html>
