@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ro">
+
 <head>
 
 <meta charset="UTF-8">
@@ -75,18 +76,23 @@ img {
 
 
 /* =====================================================
-   HEADER / HERO
+   HERO
 ===================================================== */
 
 .hero {
     position: relative;
     min-height: 620px;
+
     display: flex;
     align-items: center;
     justify-content: center;
+
     text-align: center;
+
     color: white;
+
     overflow: hidden;
+
     background: #111;
 }
 
@@ -105,8 +111,7 @@ img {
 
     opacity: 0;
 
-    transition:
-        opacity 1.2s ease-in-out;
+    transition: opacity 1.2s ease-in-out;
 
     transform: scale(1.03);
 }
@@ -413,7 +418,7 @@ img {
 
 
 /* =====================================================
-   PRODUCT GRID
+   GRIDS
 ===================================================== */
 
 .grid,
@@ -429,7 +434,7 @@ img {
 
 
 /* =====================================================
-   PIZZA / TURTA CARDS
+   PIZZA / TURTA
 ===================================================== */
 
 .card,
@@ -866,7 +871,7 @@ footer strong {
 
 
 /* =====================================================
-   MOBILE
+   RESPONSIVE
 ===================================================== */
 
 @media (max-width: 950px) {
@@ -978,7 +983,7 @@ footer strong {
 
 
 <!-- =====================================================
-     HEADER
+     HERO
 ===================================================== -->
 
 <header class="hero">
@@ -1343,7 +1348,7 @@ footer strong {
 
 
 <!-- =====================================================
-     DIMENSIUNI
+     DIMENSIUNI PIZZA
 ===================================================== -->
 
 <section
@@ -1377,6 +1382,8 @@ footer strong {
         <div class="dimensions">
 
 
+            <!-- 33 CM -->
+
             <article class="dimension-card">
 
 
@@ -1401,7 +1408,7 @@ footer strong {
 
 
                     <li>
-                        Mozzarella — 200 g
+                        Mozzarella — 150 g
                     </li>
 
 
@@ -1446,6 +1453,8 @@ footer strong {
             </article>
 
 
+            <!-- 50 CM -->
+
             <article class="dimension-card">
 
 
@@ -1470,7 +1479,7 @@ footer strong {
 
 
                     <li>
-                        Mozzarella — 200 g
+                        Mozzarella — 250 g
                     </li>
 
 
@@ -1680,7 +1689,7 @@ footer strong {
 
 
 /* =====================================================
-   PATH IMAGINI
+   IMAGE ROOT
 ===================================================== */
 
 const IMAGE_ROOT =
@@ -1745,7 +1754,7 @@ const pizza = [
 
 
     {
-        image: null,
+        image: "formaggi.jpg",
 
         title: "QUATTRO FORMAGGI",
 
@@ -1770,7 +1779,7 @@ const pizza = [
 
 
     {
-        image: null,
+        image: "stagioni.jpg",
 
         title: "QUATTRO STAGIONI",
 
@@ -2156,7 +2165,7 @@ const food = [
 
 
 /* =====================================================
-   COCKTAILURI
+   COCKTAILS
 ===================================================== */
 
 const cocktails = [
@@ -2205,7 +2214,8 @@ function createCard(item) {
         document.createElement("article");
 
 
-    article.className = "card";
+    article.className =
+        "card";
 
 
     if (item.image) {
@@ -2660,7 +2670,7 @@ cocktails.forEach(
 
 
 /* =====================================================
-   HEADER SLIDESHOW
+   HERO SLIDESHOW
 ===================================================== */
 
 const slides =
@@ -2712,6 +2722,7 @@ function nextSlide() {
 
     currentSlide++;
 
+
     if (
         currentSlide >= slides.length
     ) {
@@ -2721,7 +2732,9 @@ function nextSlide() {
     }
 
 
-    showSlide(currentSlide);
+    showSlide(
+        currentSlide
+    );
 
 }
 
@@ -2733,7 +2746,7 @@ setInterval(
 
 
 /* =====================================================
-   CLICK PE DOTURI
+   HERO DOTS
 ===================================================== */
 
 dots.forEach(
@@ -2758,8 +2771,10 @@ dots.forEach(
     }
 );
 
+
 </script>
 
 
 </body>
+
 </html>
